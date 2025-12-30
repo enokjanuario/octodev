@@ -6,12 +6,21 @@ export const metadata: Metadata = {
   description: 'Desenvolvimento de software personalizado: aplicações web, mobile, integrações e consultoria tech. Soluções digitais que abraçam seu negócio por completo.',
   keywords: 'desenvolvimento software, aplicativo mobile, sistema web, react, next.js, são paulo, consultoria tech',
   authors: [{ name: 'Octolabs' }],
+  icons: {
+    icon: [
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+      { url: '/logo.png', type: 'image/png' },
+    ],
+    apple: '/logo.png',
+    shortcut: '/favicon.svg',
+  },
   openGraph: {
     title: 'Octolabs - Software que abraça seu negócio',
     description: 'Desenvolvimento web, mobile e integrações com qualidade e precisão.',
     type: 'website',
     locale: 'pt_BR',
     siteName: 'Octolabs',
+    images: ['/logo.png'],
   },
   twitter: {
     card: 'summary_large_image',
