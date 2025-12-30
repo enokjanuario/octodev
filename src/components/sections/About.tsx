@@ -187,9 +187,9 @@ export default function About() {
             </div>
 
             <blockquote className="font-body text-xl md:text-2xl text-text-secondary italic mb-8 relative">
-              <span className="absolute -left-4 -top-2 text-4xl text-octopus-purple/30">"</span>
+              <span className="absolute -left-4 -top-2 text-4xl text-octopus-purple/30">&ldquo;</span>
               Transformo complexidade em soluções elegantes
-              <span className="absolute -right-4 -bottom-2 text-4xl text-octopus-purple/30">"</span>
+              <span className="absolute -right-4 -bottom-2 text-4xl text-octopus-purple/30">&rdquo;</span>
             </blockquote>
 
             <p className="font-body text-text-secondary mb-8 leading-relaxed">
