@@ -2,28 +2,33 @@
 
 import { motion } from 'framer-motion'
 import Image from 'next/image'
+import { useTranslations } from 'next-intl'
 
 const whatsappNumber = '5531991508940'
-const whatsappMessage = encodeURIComponent('Olá, vim pelo seu site e gostaria de um orçamento')
-const whatsappLink = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`
 const email = 'ejrocha07@gmail.com'
 
-const footerLinks = {
-  servicos: [
-    { label: 'Web Apps', href: '#servicos' },
-    { label: 'Mobile', href: '#servicos' },
-    { label: 'E-commerce', href: '#servicos' },
-    { label: 'Integrações', href: '#servicos' },
-  ],
-  empresa: [
-    { label: 'Cases de Sucesso', href: '#projetos' },
-    { label: 'Sobre', href: '#sobre' },
-    { label: 'Processo', href: '#processo' },
-    { label: 'Contato', href: '#contato' },
-  ],
-}
-
 export default function Footer() {
+  const t = useTranslations('footer')
+  const tCommon = useTranslations()
+
+  const whatsappMessage = encodeURIComponent(tCommon('whatsappMessage'))
+  const whatsappLink = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`
+
+  const footerLinks = {
+    servicos: [
+      { label: 'Web Apps', href: '#servicos' },
+      { label: 'Mobile', href: '#servicos' },
+      { label: 'E-commerce', href: '#servicos' },
+      { label: t('links.contact'), href: '#servicos' },
+    ],
+    empresa: [
+      { label: t('links.cases'), href: '#projetos' },
+      { label: t('links.about'), href: '#sobre' },
+      { label: t('links.process'), href: '#processo' },
+      { label: t('links.contact'), href: '#contato' },
+    ],
+  }
+
   return (
     <footer className="relative pt-20 pb-8 overflow-hidden">
       {/* Wave Top */}
@@ -74,17 +79,17 @@ export default function Footer() {
               </span>
             </motion.a>
             <p className="font-body text-text-secondary text-sm leading-relaxed mb-6">
-              Desenvolvimento de software que abraça seu negócio. Soluções web, mobile e integrações.
+              {t('tagline')}
             </p>
             <p className="font-mono text-xs text-text-secondary/60">
-              8 braços. Zero bugs. Infinite possibilities.
+              {t('slogan')}
             </p>
           </div>
 
           {/* Services Links */}
           <div>
             <h4 className="font-display font-semibold text-text-primary mb-4">
-              Serviços
+              {t('services')}
             </h4>
             <ul className="space-y-3">
               {footerLinks.servicos.map((link) => (
@@ -104,7 +109,7 @@ export default function Footer() {
           {/* Company Links */}
           <div>
             <h4 className="font-display font-semibold text-text-primary mb-4">
-              Empresa
+              {t('company')}
             </h4>
             <ul className="space-y-3">
               {footerLinks.empresa.map((link) => (
@@ -124,7 +129,7 @@ export default function Footer() {
           {/* Contact */}
           <div>
             <h4 className="font-display font-semibold text-text-primary mb-4">
-              Contato
+              {t('contactTitle')}
             </h4>
             <div className="space-y-3">
               <motion.a
@@ -147,7 +152,7 @@ export default function Footer() {
                 WhatsApp
               </motion.a>
               <p className="font-body text-sm text-text-secondary">
-                Todo o Brasil
+                {t('location')}
               </p>
             </div>
           </div>
@@ -159,7 +164,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="font-body text-sm text-text-secondary/60 text-center md:text-left">
-            © {new Date().getFullYear()} Octodev. Todos os direitos reservados.
+            © {new Date().getFullYear()} Octodev. {t('copyright')}
           </p>
 
           {/* Floating Octopus */}
@@ -176,7 +181,7 @@ export default function Footer() {
           >
             <span className="text-2xl">🐙</span>
             <span className="font-mono text-xs text-text-secondary/40">
-              Made with 8 tentacles
+              {t('madeWith')}
             </span>
           </motion.div>
         </div>

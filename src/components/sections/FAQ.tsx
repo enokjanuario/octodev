@@ -2,44 +2,15 @@
 
 import { motion, useInView, AnimatePresence } from 'framer-motion'
 import { useRef, useState } from 'react'
+import { useTranslations } from 'next-intl'
 
-const faqs = [
-  {
-    question: 'Quanto custa desenvolver um aplicativo ou sistema?',
-    answer: 'O valor varia conforme a complexidade do projeto. Landing pages começam em R$800, sistemas web a partir de R$3.000 e aplicativos mobile a partir de R$5.000. Fazemos orçamento gratuito e personalizado para cada projeto.',
-  },
-  {
-    question: 'Qual o prazo de entrega?',
-    answer: 'Landing pages: 5-10 dias. Sistemas web simples: 2-4 semanas. Aplicativos e sistemas complexos: 4-12 semanas. Trabalhamos com sprints semanais e você acompanha todo o progresso.',
-  },
-  {
-    question: 'Vocês fazem manutenção após a entrega?',
-    answer: 'Sim! Oferecemos 30 dias de suporte gratuito após a entrega. Depois, temos planos de manutenção mensal que incluem atualizações, correções e pequenas melhorias.',
-  },
-  {
-    question: 'Como funciona o processo de desenvolvimento?',
-    answer: 'Começamos com uma reunião para entender sua necessidade. Depois, enviamos proposta detalhada. Aprovado, iniciamos o desenvolvimento com entregas semanais para você acompanhar. Ao final, fazemos testes e ajustes até sua aprovação.',
-  },
-  {
-    question: 'Preciso pagar tudo adiantado?',
-    answer: 'Não. Trabalhamos com 50% na aprovação e 50% na entrega. Para projetos maiores, podemos dividir em mais parcelas conforme as entregas.',
-  },
-  {
-    question: 'Vocês trabalham com qual tecnologia?',
-    answer: 'Trabalhamos com as tecnologias mais modernas do mercado: React, Next.js, React Native, Node.js, TypeScript, Python, PostgreSQL, MongoDB e integrações com APIs diversas (pagamentos, WhatsApp, CRMs, etc).',
-  },
-  {
-    question: 'E se eu não gostar do resultado?',
-    answer: 'Fazemos revisões ilimitadas durante o desenvolvimento. Você aprova cada etapa antes de avançarmos. Nossa taxa de satisfação é de 100% porque priorizamos comunicação clara e entregas alinhadas.',
-  },
-  {
-    question: 'Vocês atendem empresas de qual tamanho?',
-    answer: 'Atendemos desde empreendedores individuais até empresas de médio porte. Cada projeto recebe atenção personalizada, independente do tamanho.',
-  },
-]
+type FAQItem = {
+  question: string
+  answer: string
+}
 
-function FAQItem({ faq, index, isOpen, onToggle }: {
-  faq: typeof faqs[0]
+function FAQItemComponent({ faq, index, isOpen, onToggle }: {
+  faq: FAQItem
   index: number
   isOpen: boolean
   onToggle: () => void
@@ -91,9 +62,21 @@ function FAQItem({ faq, index, isOpen, onToggle }: {
 }
 
 export default function FAQ() {
+  const t = useTranslations('faq')
   const sectionRef = useRef(null)
   const isInView = useInView(sectionRef, { once: true, margin: '-100px' })
   const [openIndex, setOpenIndex] = useState<number | null>(0)
+
+  const faqs: FAQItem[] = [
+    { question: t('questions.cost.question'), answer: t('questions.cost.answer') },
+    { question: t('questions.timeline.question'), answer: t('questions.timeline.answer') },
+    { question: t('questions.maintenance.question'), answer: t('questions.maintenance.answer') },
+    { question: t('questions.process.question'), answer: t('questions.process.answer') },
+    { question: t('questions.payment.question'), answer: t('questions.payment.answer') },
+    { question: t('questions.technology.question'), answer: t('questions.technology.answer') },
+    { question: t('questions.satisfaction.question'), answer: t('questions.satisfaction.answer') },
+    { question: t('questions.companySize.question'), answer: t('questions.companySize.answer') },
+  ]
 
   return (
     <section
@@ -132,11 +115,11 @@ export default function FAQ() {
           transition={{ duration: 0.8 }}
         >
           <h2 className="font-display text-3xl md:text-5xl font-bold mb-4">
-            Perguntas{' '}
-            <span className="text-gradient">Frequentes</span>
+            {t('title')}{' '}
+            <span className="text-gradient">{t('titleHighlight')}</span>
           </h2>
           <p className="font-body text-text-secondary text-lg max-w-2xl mx-auto">
-            Tire suas dúvidas sobre nosso processo de desenvolvimento
+            {t('subtitle')}
           </p>
         </motion.div>
 
@@ -149,7 +132,7 @@ export default function FAQ() {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             {faqs.map((faq, index) => (
-              <FAQItem
+              <FAQItemComponent
                 key={index}
                 faq={faq}
                 index={index}
@@ -168,7 +151,7 @@ export default function FAQ() {
           transition={{ duration: 0.8, delay: 0.4 }}
         >
           <p className="font-body text-text-secondary mb-4">
-            Ainda tem dúvidas?
+            {t('cta.text')}
           </p>
           <motion.a
             href="#contato"
@@ -179,7 +162,7 @@ export default function FAQ() {
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
             </svg>
-            Fale Conosco
+            {t('cta.button')}
           </motion.a>
         </motion.div>
       </div>

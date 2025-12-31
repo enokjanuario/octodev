@@ -2,6 +2,7 @@
 
 import { motion, useInView, AnimatePresence } from 'framer-motion'
 import { useRef, useState, useEffect } from 'react'
+import { useTranslations } from 'next-intl'
 
 const testimonials = [
   {
@@ -56,6 +57,7 @@ const testimonials = [
 ]
 
 export default function Testimonials() {
+  const t = useTranslations('testimonials')
   const sectionRef = useRef(null)
   const isInView = useInView(sectionRef, { once: true, margin: '-100px' })
   const [currentIndex, setCurrentIndex] = useState(0)
@@ -114,11 +116,11 @@ export default function Testimonials() {
           transition={{ duration: 0.8 }}
         >
           <h2 className="font-display text-3xl md:text-5xl font-bold mb-4">
-            O que dizem sobre a{' '}
-            <span className="text-gradient">Octodev</span>
+            {t('title')}{' '}
+            <span className="text-gradient">{t('titleHighlight')}</span>
           </h2>
           <p className="font-body text-text-secondary text-lg">
-            Clientes satisfeitos em águas profundas
+            {t('subtitle')}
           </p>
         </motion.div>
 

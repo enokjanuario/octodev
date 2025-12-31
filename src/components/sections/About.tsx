@@ -3,6 +3,7 @@
 import { motion, useInView } from 'framer-motion'
 import { useRef } from 'react'
 import Image from 'next/image'
+import { useTranslations } from 'next-intl'
 
 const socialLinks = [
   { name: 'LinkedIn', icon: 'linkedin', href: 'https://www.linkedin.com/in/enokjrocha/' },
@@ -10,6 +11,7 @@ const socialLinks = [
 ]
 
 export default function About() {
+  const t = useTranslations('about')
   const sectionRef = useRef(null)
   const isInView = useInView(sectionRef, { once: true, margin: '-100px' })
 
@@ -35,8 +37,8 @@ export default function About() {
           transition={{ duration: 0.8 }}
         >
           <h2 className="font-display text-3xl md:text-5xl font-bold mb-4">
-            O cérebro por trás dos{' '}
-            <span className="text-gradient">8 braços</span>
+            {t('title')}{' '}
+            <span className="text-gradient">{t('titleHighlight')}</span>
           </h2>
         </motion.div>
 
@@ -179,23 +181,21 @@ export default function About() {
           >
             <div className="mb-6">
               <h3 className="font-display text-3xl md:text-4xl font-bold text-text-primary mb-2">
-                Enok
+                {t('founder')}
               </h3>
               <p className="font-body text-tentacle-cyan text-lg">
-                Founder & Developer
+                {t('role')}
               </p>
             </div>
 
             <blockquote className="font-body text-xl md:text-2xl text-text-secondary italic mb-8 relative">
               <span className="absolute -left-4 -top-2 text-4xl text-octopus-purple/30">&ldquo;</span>
-              Transformo complexidade em soluções elegantes
+              {t('quote')}
               <span className="absolute -right-4 -bottom-2 text-4xl text-octopus-purple/30">&rdquo;</span>
             </blockquote>
 
             <p className="font-body text-text-secondary mb-8 leading-relaxed">
-              Desenvolvedor Full Stack apaixonado por criar experiências digitais excepcionais.
-              Com anos de experiência em projetos de todos os tamanhos, lidero a Octodev
-              com foco em qualidade, inovação e resultados reais para cada cliente.
+              {t('bio')}
             </p>
 
             {/* Social Links */}

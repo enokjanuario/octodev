@@ -3,6 +3,7 @@
 import { motion, useInView } from 'framer-motion'
 import { useRef } from 'react'
 import Image from 'next/image'
+import { useTranslations } from 'next-intl'
 
 const projects = [
   {
@@ -70,6 +71,7 @@ const categoryColors: Record<string, string> = {
 }
 
 export default function Projects() {
+  const t = useTranslations('projects')
   const sectionRef = useRef(null)
   const isInView = useInView(sectionRef, { once: true, margin: '-100px' })
 
@@ -95,11 +97,11 @@ export default function Projects() {
           transition={{ duration: 0.8 }}
         >
           <h2 className="font-display text-3xl md:text-5xl font-bold mb-4">
-            Projetos que{' '}
-            <span className="text-gradient">geram resultados</span>
+            {t('title')}{' '}
+            <span className="text-gradient">{t('titleHighlight')}</span>
           </h2>
           <p className="font-body text-text-secondary text-lg max-w-2xl mx-auto">
-            Do conceito ao deploy — cada projeto é desenvolvido para impulsionar seu negócio
+            {t('subtitle')}
           </p>
         </motion.div>
 
@@ -197,7 +199,7 @@ export default function Projects() {
                   {/* View Project Link */}
                   <div className="mt-4 pt-4 border-t border-white/10">
                     <span className="font-body text-sm text-tentacle-cyan group-hover:text-octopus-purple transition-colors inline-flex items-center gap-2">
-                      Ver projeto
+                      {t('viewProject')}
                       <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                       </svg>
@@ -220,10 +222,10 @@ export default function Projects() {
           transition={{ delay: 0.8, duration: 0.8 }}
         >
           {[
-            { value: '100%', label: 'Satisfação' },
-            { value: '5.0', label: 'Avaliação média' },
-            { value: '< 30 dias', label: 'Tempo médio de entrega' },
-            { value: '24h', label: 'Tempo de resposta' },
+            { value: '100%', label: t('stats.satisfaction') },
+            { value: '5.0', label: t('stats.avgRating') },
+            { value: '< 30 days', label: t('stats.avgDelivery') },
+            { value: '24h', label: t('stats.responseTime') },
           ].map((stat) => (
             <motion.div
               key={stat.label}
@@ -249,7 +251,7 @@ export default function Projects() {
           transition={{ delay: 1, duration: 0.8 }}
         >
           <p className="font-body text-text-secondary mb-6">
-            Seu projeto pode ser o próximo case de sucesso
+            {t('cta.text')}
           </p>
           <motion.a
             href="#contato"
@@ -257,7 +259,7 @@ export default function Projects() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            Solicitar Orçamento Gratuito
+            {t('cta.button')}
           </motion.a>
         </motion.div>
       </div>

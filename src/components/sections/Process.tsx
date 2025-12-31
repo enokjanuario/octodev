@@ -2,41 +2,43 @@
 
 import { motion, useInView, useScroll, useTransform } from 'framer-motion'
 import { useRef } from 'react'
-
-const steps = [
-  {
-    number: '01',
-    title: 'Discovery',
-    description: 'Mergulhamos fundo para entender seu negócio, objetivos e desafios. Análise completa de requisitos.',
-    icon: '🔍',
-    duration: '1-3 dias',
-  },
-  {
-    number: '02',
-    title: 'Proposta',
-    description: 'Apresentamos uma solução personalizada com escopo, cronograma e investimento transparentes.',
-    icon: '📋',
-    duration: '24-48h',
-  },
-  {
-    number: '03',
-    title: 'Desenvolvimento',
-    description: 'Nossos 8 braços trabalham em sprints ágeis, com entregas incrementais e feedback contínuo.',
-    icon: '⚡',
-    duration: '1-4 semanas',
-  },
-  {
-    number: '04',
-    title: 'Entrega & Suporte',
-    description: 'Deploy em produção, treinamento da equipe e suporte contínuo para garantir o sucesso.',
-    icon: '🚀',
-    duration: 'Contínuo',
-  },
-]
+import { useTranslations } from 'next-intl'
 
 export default function Process() {
+  const t = useTranslations('process')
   const sectionRef = useRef(null)
   const isInView = useInView(sectionRef, { once: true, margin: '-100px' })
+
+  const steps = [
+    {
+      number: '01',
+      title: t('steps.discovery.title'),
+      description: t('steps.discovery.description'),
+      icon: '🔍',
+      duration: t('steps.discovery.duration'),
+    },
+    {
+      number: '02',
+      title: t('steps.proposal.title'),
+      description: t('steps.proposal.description'),
+      icon: '📋',
+      duration: t('steps.proposal.duration'),
+    },
+    {
+      number: '03',
+      title: t('steps.development.title'),
+      description: t('steps.development.description'),
+      icon: '⚡',
+      duration: t('steps.development.duration'),
+    },
+    {
+      number: '04',
+      title: t('steps.delivery.title'),
+      description: t('steps.delivery.description'),
+      icon: '🚀',
+      duration: t('steps.delivery.duration'),
+    },
+  ]
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -63,12 +65,12 @@ export default function Process() {
           transition={{ duration: 0.8 }}
         >
           <h2 className="font-display text-3xl md:text-5xl font-bold mb-4">
-            Como{' '}
-            <span className="text-gradient">abraçamos</span>{' '}
-            seu projeto
+            {t('title')}{' '}
+            <span className="text-gradient">{t('titleHighlight')}</span>{' '}
+            {t('titleEnd')}
           </h2>
           <p className="font-body text-text-secondary text-lg max-w-2xl mx-auto">
-            Um processo transparente e ágil do início ao fim
+            {t('subtitle')}
           </p>
         </motion.div>
 
@@ -176,7 +178,7 @@ export default function Process() {
           transition={{ delay: 1.2, duration: 0.8 }}
         >
           <p className="font-body text-text-secondary mb-6">
-            Pronto para começar sua jornada?
+            {t('cta.text')}
           </p>
           <motion.a
             href="#contato"
@@ -184,7 +186,7 @@ export default function Process() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            Vamos Conversar
+            {t('cta.button')}
           </motion.a>
         </motion.div>
       </div>
