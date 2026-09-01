@@ -1,5 +1,0 @@
-export { default as ParticlesBackground } from './ParticlesBackground'
-export { default as TentacleSVG, HeroTentacles } from './TentaclesSVG'
-export { default as GodRays } from './GodRays'
-export { default as FloatingBubbles } from './FloatingBubbles'
-export { default as CustomCursor } from './CustomCursor'

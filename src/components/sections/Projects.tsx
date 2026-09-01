@@ -1,266 +1,255 @@
 'use client'
 
-import { motion, useInView } from 'framer-motion'
-import { useRef } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+import { useState } from 'react'
 import Image from 'next/image'
 import { useTranslations } from 'next-intl'
+import Icon from '@/components/ui/Icon'
+import SectionHeader from '@/components/ui/SectionHeader'
+import { fadeUp, VIEWPORT, EASE } from '@/lib/motion'
 
 const projects = [
   {
-    id: 1,
+    key: 'academiay',
     title: 'Academia Y',
-    description: 'Sistema de ranking gamificado para comunidade de League of Legends. Integração com API da Riot Games, dashboards em tempo real e analytics completo.',
-    category: 'Sistema Web',
-    technologies: ['React', 'Node.js', 'API Riot Games', 'Analytics'],
-    gradient: 'from-yellow-500 to-orange-500',
-    image: '/projects/Screenshot_1.png',
     link: 'http://academia-y.com.br/',
-    metrics: 'Mais de 500 usuários',
+    image: '/projects/Screenshot_1.png',
+    tech: ['React', 'Node.js', 'Riot API'],
   },
   {
-    id: 2,
+    key: 'biotrack',
     title: 'BioTrack',
-    description: 'Plataforma completa que conecta personal trainers e alunos: gestão de treinos, fichas personalizadas, avaliações físicas com gráficos evolutivos e acompanhamento em tempo real.',
-    category: 'SaaS',
-    technologies: ['Next.js', 'TypeScript', 'Prisma', 'Dashboard'],
-    gradient: 'from-green-500 to-cyan-500',
-    image: '/projects/Screenshot_7.png',
     link: 'https://biotrack.vercel.app/',
-    metrics: 'Personal + Alunos',
+    image: '/projects/Screenshot_7.png',
+    tech: ['Next.js', 'TypeScript', 'Prisma'],
   },
   {
-    id: 3,
+    key: 'bugless',
     title: 'Bugless',
-    description: 'Landing page de alta conversão para agência de desenvolvimento de software. Design moderno, animações fluidas e otimizada para captação de leads qualificados.',
-    category: 'Landing Page',
-    technologies: ['Next.js', 'Tailwind', 'Framer Motion', 'SEO'],
-    gradient: 'from-purple-500 to-blue-500',
-    image: '/projects/Screenshot_11.png',
     link: 'https://bugless-omega.vercel.app/',
-    metrics: 'Alta conversão',
+    image: '/projects/Screenshot_11.png',
+    tech: ['Next.js', 'Tailwind', 'Framer Motion'],
   },
   {
-    id: 4,
+    key: 'rds',
     title: '2RDS Consultoria',
-    description: 'Site institucional profissional para consultoria empresarial. Foco em credibilidade, apresentação de serviços e geração de oportunidades de negócio.',
-    category: 'Site Institucional',
-    technologies: ['React', 'Tailwind', 'Responsivo', 'SEO'],
-    gradient: 'from-cyan-500 to-blue-500',
-    image: '/projects/Screenshot_5.png',
     link: 'https://2rdsconsultoria.com.br/',
-    metrics: 'Design profissional',
+    image: '/projects/Screenshot_5.png',
+    tech: ['React', 'Tailwind', 'SEO'],
   },
   {
-    id: 5,
+    key: 'esc',
     title: 'ESC Empréstimos',
-    description: 'Landing page de captação para empresa financeira de empréstimos. Formulário inteligente, validações em tempo real e integração com CRM para qualificação de leads.',
-    category: 'Landing Page',
-    technologies: ['React', 'Forms', 'Validação', 'CRM'],
-    gradient: 'from-pink-500 to-purple-500',
-    image: '/projects/Screenshot_6.png',
     link: 'https://esc-beryl.vercel.app/',
-    metrics: 'Conversão otimizada',
+    image: '/projects/Screenshot_6.png',
+    tech: ['React', 'Forms', 'CRM'],
   },
 ]
 
-const categoryColors: Record<string, string> = {
-  'Sistema Web': 'bg-yellow-500/20 text-yellow-400 border-yellow-500/30',
-  'SaaS': 'bg-green-500/20 text-green-400 border-green-500/30',
-  'Landing Page': 'bg-octopus-purple/20 text-octopus-purple border-octopus-purple/30',
-  'Site Institucional': 'bg-tentacle-cyan/20 text-tentacle-cyan border-tentacle-cyan/30',
-}
-
 export default function Projects() {
-  const t = useTranslations('projects')
-  const sectionRef = useRef(null)
-  const isInView = useInView(sectionRef, { once: true, margin: '-100px' })
+  const t = useTranslations('work')
+  const [activeIndex, setActiveIndex] = useState(0)
+
+  const stats = [
+    { value: '100%', label: t('stats.satisfaction') },
+    { value: '5.0', label: t('stats.avgRating') },
+    { value: '<30d', label: t('stats.avgDelivery') },
+    { value: '24h', label: t('stats.responseTime') },
+  ]
 
   return (
-    <section
-      id="projetos"
-      ref={sectionRef}
-      className="relative py-24 md:py-32 overflow-hidden"
-    >
-      {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-deep-ocean via-abyss to-deep-ocean" />
+    <section id="projetos" className="relative overflow-hidden border-t border-line py-28 md:py-36">
+      <div className="mx-auto max-w-7xl px-6 md:px-10">
+        <SectionHeader
+          index="02"
+          kicker={t('kicker')}
+          title={t('title')}
+          accent={t('titleAccent')}
+          subtitle={t('subtitle')}
+        />
 
-      {/* Decorative Elements */}
-      <div className="absolute top-1/4 right-0 w-96 h-96 bg-octopus-purple/10 rounded-full blur-3xl" />
-      <div className="absolute bottom-1/4 left-0 w-96 h-96 bg-tentacle-cyan/10 rounded-full blur-3xl" />
-
-      <div className="relative z-10 container mx-auto px-6">
-        {/* Header */}
-        <motion.div
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
-        >
-          <h2 className="font-display text-3xl md:text-5xl font-bold mb-4">
-            {t('title')}{' '}
-            <span className="text-gradient">{t('titleHighlight')}</span>
-          </h2>
-          <p className="font-body text-text-secondary text-lg max-w-2xl mx-auto">
-            {t('subtitle')}
-          </p>
-        </motion.div>
-
-        {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-          {projects.map((project, index) => (
-            <motion.a
-              key={project.id}
-              href={project.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="relative group block"
-              initial={{ opacity: 0, y: 50 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{
-                delay: 0.1 + index * 0.1,
-                duration: 0.6,
-              }}
-            >
-              {/* Card */}
-              <motion.div
-                className="card-glass h-full relative overflow-hidden"
-                whileHover={{ y: -8 }}
-                transition={{ duration: 0.3 }}
-              >
-                {/* Image */}
-                <div className="relative h-48 overflow-hidden">
-                  <Image
-                    src={project.image}
-                    alt={project.title}
-                    fill
-                    className="object-cover object-top transition-transform duration-500 group-hover:scale-110"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  />
-                  {/* Overlay gradient */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-abyss via-transparent to-transparent" />
-
-                  {/* Metrics Badge */}
-                  <div className="absolute top-3 right-3">
-                    <span className="font-mono text-xs px-3 py-1 rounded-full bg-abyss/80 text-tentacle-cyan border border-tentacle-cyan/30 backdrop-blur-sm">
-                      {project.metrics}
-                    </span>
+        {/* Desktop: interactive list + sticky preview. Mobile: stacked cards */}
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16">
+          {/* Project list */}
+          <div className="order-2 lg:order-1">
+            <div className="border-t border-line">
+              {projects.map((project, index) => (
+                <motion.a
+                  key={project.key}
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`group block border-b border-line py-6 transition-colors duration-300 md:py-7 ${
+                    activeIndex === index ? 'lg:bg-white/[0.02]' : ''
+                  }`}
+                  onMouseEnter={() => setActiveIndex(index)}
+                  onFocus={() => setActiveIndex(index)}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={VIEWPORT}
+                  variants={fadeUp}
+                  custom={0.05 * index}
+                >
+                  {/* Mobile-only image */}
+                  <div className="relative mb-5 aspect-[16/10] overflow-hidden rounded-lg border border-line lg:hidden">
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      fill
+                      className="object-cover object-top"
+                      sizes="(max-width: 1024px) 100vw, 0px"
+                    />
                   </div>
-                </div>
 
-                {/* Content */}
-                <div className="p-6">
-                  {/* Category Badge */}
-                  <span
-                    className={`inline-block font-mono text-xs px-3 py-1 rounded-full border mb-3 ${
-                      categoryColors[project.category] || categoryColors['Landing Page']
-                    }`}
-                  >
-                    {project.category}
-                  </span>
-
-                  {/* Title */}
-                  <h3 className="font-display text-xl font-semibold mb-2 text-text-primary group-hover:text-gradient transition-all duration-300">
-                    {project.title}
-                  </h3>
-
-                  {/* Description with tooltip on hover */}
-                  <div className="relative group/desc">
-                    <p className="font-body text-text-secondary text-sm mb-4 leading-relaxed line-clamp-2">
-                      {project.description}
-                    </p>
-                    {/* Full description tooltip */}
-                    <div className="absolute left-0 right-0 bottom-full mb-2 p-3 rounded-lg bg-abyss/95 border border-white/20 backdrop-blur-md opacity-0 invisible group-hover/desc:opacity-100 group-hover/desc:visible transition-all duration-300 z-20 shadow-xl">
-                      <p className="font-body text-text-primary text-sm leading-relaxed">
-                        {project.description}
-                      </p>
-                      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-full">
-                        <div className="border-8 border-transparent border-t-abyss/95"></div>
+                  <div className="flex items-center gap-5">
+                    <span
+                      className={`font-mono text-sm transition-colors duration-300 ${
+                        activeIndex === index ? 'text-tentacle-cyan' : 'text-text-secondary/40'
+                      }`}
+                    >
+                      0{index + 1}
+                    </span>
+                    <div className="flex-1">
+                      <div className="flex items-center gap-3">
+                        <h3
+                          className={`font-display text-2xl font-semibold transition-colors duration-300 md:text-3xl ${
+                            activeIndex === index ? 'text-text-primary' : 'text-text-secondary'
+                          }`}
+                        >
+                          {project.title}
+                        </h3>
+                      </div>
+                      <div className="mt-1.5 flex flex-wrap items-center gap-x-3 gap-y-1">
+                        <span className="font-mono text-[11px] uppercase tracking-widest text-octopus-purple">
+                          {t(`items.${project.key}.category`)}
+                        </span>
+                        <span className="text-text-secondary/30">·</span>
+                        <span className="font-mono text-[11px] text-text-secondary">
+                          {t(`items.${project.key}.metric`)}
+                        </span>
                       </div>
                     </div>
-                  </div>
-
-                  {/* Tech tags */}
-                  <div className="flex flex-wrap gap-2">
-                    {project.technologies.slice(0, 3).map((tech) => (
-                      <span
-                        key={tech}
-                        className="font-mono text-xs px-2 py-1 rounded-full bg-white/5 text-text-secondary border border-white/10"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                    {project.technologies.length > 3 && (
-                      <span className="font-mono text-xs px-2 py-1 rounded-full bg-white/5 text-text-secondary border border-white/10">
-                        +{project.technologies.length - 3}
-                      </span>
-                    )}
-                  </div>
-
-                  {/* View Project Link */}
-                  <div className="mt-4 pt-4 border-t border-white/10">
-                    <span className="font-body text-sm text-tentacle-cyan group-hover:text-octopus-purple transition-colors inline-flex items-center gap-2">
-                      {t('viewProject')}
-                      <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                      </svg>
+                    <span
+                      className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-full border transition-all duration-300 ${
+                        activeIndex === index
+                          ? 'border-tentacle-cyan/50 text-tentacle-cyan lg:-rotate-0'
+                          : 'border-line text-text-secondary/50'
+                      } group-hover:border-tentacle-cyan/50 group-hover:text-tentacle-cyan`}
+                    >
+                      <Icon
+                        name="arrow-up-right"
+                        className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                      />
                     </span>
                   </div>
-                </div>
+                </motion.a>
+              ))}
+            </div>
 
-                {/* Hover glow effect */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500 pointer-events-none`} />
+            <motion.p
+              className="mt-8 font-body text-sm text-text-secondary"
+              initial="hidden"
+              whileInView="visible"
+              viewport={VIEWPORT}
+              variants={fadeUp}
+            >
+              {t('cta.text')}
+            </motion.p>
+          </div>
+
+          {/* Sticky preview (desktop only) */}
+          <div className="order-1 hidden lg:order-2 lg:block">
+            <div className="sticky top-28">
+              <motion.div
+                className="relative aspect-[4/3] overflow-hidden rounded-xl border border-line bg-deep-ocean"
+                initial={{ opacity: 0, scale: 0.97 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={VIEWPORT}
+                transition={{ duration: 0.8, ease: EASE }}
+              >
+                <AnimatePresence mode="popLayout">
+                  <motion.div
+                    key={activeIndex}
+                    className="absolute inset-0"
+                    initial={{ opacity: 0, scale: 1.04 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.45, ease: EASE }}
+                  >
+                    <Image
+                      src={projects[activeIndex].image}
+                      alt={projects[activeIndex].title}
+                      fill
+                      className="object-cover object-top"
+                      sizes="(min-width: 1024px) 50vw, 0px"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-abyss/70 via-transparent to-transparent" />
+                  </motion.div>
+                </AnimatePresence>
+
+                {/* Caption */}
+                <div className="absolute bottom-0 left-0 right-0 z-10 flex items-end justify-between p-6">
+                  <div>
+                    <p className="font-display text-lg font-semibold text-text-primary">
+                      {projects[activeIndex].title}
+                    </p>
+                    <p className="mt-1 max-w-sm font-body text-sm text-text-secondary">
+                      {t(`items.${projects[activeIndex].key}.description`)}
+                    </p>
+                  </div>
+                </div>
               </motion.div>
-            </motion.a>
-          ))}
+
+              {/* Tech chips of active project */}
+              <div className="mt-4 flex flex-wrap gap-2">
+                {projects[activeIndex].tech.map((tech) => (
+                  <span
+                    key={tech}
+                    className="rounded-md border border-line px-2.5 py-1 font-mono text-[11px] text-text-secondary"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
 
-        {/* Stats Section */}
+        {/* Stats + CTA */}
         <motion.div
-          className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-6"
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ delay: 0.8, duration: 0.8 }}
+          className="mt-20 grid grid-cols-2 gap-px overflow-hidden rounded-xl border border-line bg-line md:grid-cols-4"
+          initial="hidden"
+          whileInView="visible"
+          viewport={VIEWPORT}
+          variants={fadeUp}
         >
-          {[
-            { value: '100%', label: t('stats.satisfaction') },
-            { value: '5.0', label: t('stats.avgRating') },
-            { value: '< 30 days', label: t('stats.avgDelivery') },
-            { value: '24h', label: t('stats.responseTime') },
-          ].map((stat) => (
-            <motion.div
-              key={stat.label}
-              className="text-center p-4 rounded-xl bg-white/5 border border-white/10"
-              whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.2 }}
-            >
-              <div className="font-display text-2xl md:text-3xl font-bold text-gradient mb-1">
+          {stats.map((stat) => (
+            <div key={stat.label} className="flex flex-col gap-1 bg-deep-ocean p-6 md:p-8">
+              <span className="font-display text-2xl font-bold text-text-primary md:text-3xl">
                 {stat.value}
-              </div>
-              <div className="font-body text-xs md:text-sm text-text-secondary">
+              </span>
+              <span className="font-mono text-[11px] uppercase tracking-widest text-text-secondary">
                 {stat.label}
-              </div>
-            </motion.div>
+              </span>
+            </div>
           ))}
         </motion.div>
 
-        {/* CTA */}
         <motion.div
-          className="text-center mt-16"
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ delay: 1, duration: 0.8 }}
+          className="mt-12 flex justify-center md:justify-start"
+          initial="hidden"
+          whileInView="visible"
+          viewport={VIEWPORT}
+          variants={fadeUp}
+          custom={0.1}
         >
-          <p className="font-body text-text-secondary mb-6">
-            {t('cta.text')}
-          </p>
-          <motion.a
-            href="#contato"
-            className="btn-primary inline-flex items-center gap-2"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
+          <a href="#contato" className="btn-primary group">
             {t('cta.button')}
-          </motion.a>
+            <Icon
+              name="arrow-right"
+              className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
+            />
+          </a>
         </motion.div>
       </div>
     </section>

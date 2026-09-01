@@ -1,233 +1,247 @@
 {
   "metadata": {
     "title": "Octodev | Desarrollo de Software",
-    "description": "Desarrollo de software personalizado: aplicaciones web, móviles, integraciones y consultoría tech. Soluciones digitales que abrazan tu negocio por completo."
+    "description": "Desarrollo de software a medida: aplicaciones web, móviles, integraciones y QA. Del concepto al deploy, con código limpio y entregas en semanas."
   },
   "header": {
     "services": "Servicios",
-    "cases": "Casos de Éxito",
+    "work": "Proyectos",
     "process": "Proceso",
-    "about": "Nosotros",
+    "about": "Sobre mí",
+    "faq": "FAQ",
     "contact": "Contacto",
-    "startProject": "Iniciar Proyecto"
+    "startProject": "Iniciar proyecto"
   },
   "hero": {
-    "badge": "Plazas abiertas para nuevos proyectos",
-    "headline": "¿Proyecto atascado?",
-    "headlineHighlight": "Lo desatascamos.",
-    "subheadline": "Transformamos tu idea en software funcionando en",
-    "subheadlineBold": "hasta 30 días",
-    "subheadlineEnd": "Web, móvil, integraciones — con código limpio y soporte continuo.",
-    "freeQuote": "Presupuesto gratis",
-    "response24h": "Respuesta en 24h",
-    "satisfaction": "Garantía de satisfacción",
-    "ctaPrimary": "Quiero mi presupuesto gratis",
-    "ctaSecondary": "Ver Casos de Éxito",
+    "badge": "Disponible para nuevos proyectos",
+    "headline1": "Tu software en línea",
+    "headlineAccent": "en hasta 30 días.",
+    "subheadline": "Sitios, apps y sistemas a medida para quienes no pueden esperar. Código limpio, plazos reales y la calidad de quien caza bugs todos los días.",
+    "ctaPrimary": "Pedir presupuesto gratis",
+    "ctaSecondary": "Ver proyectos",
     "stats": {
-      "projects": "Proyectos Entregados",
-      "clients": "Clientes Satisfechos",
-      "rating": "Valoración"
-    }
+      "projects": "proyectos entregados",
+      "rating": "calificación media",
+      "satisfaction": "clientes satisfechos",
+      "response": "tiempo de respuesta"
+    },
+    "scroll": "Desplázate para explorar"
   },
   "problems": {
-    "title": "¿Tu proyecto está atrapado en",
-    "titleHighlight": "aguas poco profundas?",
-    "subtitle": "Problemas comunes que hunden proyectos de software",
+    "kicker": "El problema",
+    "title": "¿Por qué tantos proyectos de software",
+    "titleAccent": "se hunden?",
     "delays": {
-      "title": "Retrasos",
-      "description": "Plazos incumplidos y entregas tardías"
+      "title": "Plazos que nunca llegan",
+      "description": "Las semanas se vuelven meses. El lanzamiento se retrasa y el mercado no espera."
     },
     "bugs": {
-      "title": "Bugs",
-      "description": "Sistemas inestables llenos de errores"
+      "title": "Bugs en producción",
+      "description": "Un sistema inestable espanta clientes y quema la reputación de tu marca."
     },
     "costs": {
-      "title": "Costos",
-      "description": "Presupuestos que se salen de control"
+      "title": "Presupuesto sin control",
+      "description": "Un alcance mal definido se convierte en retrabajo — y el retrabajo, en facturas."
     },
     "solution": {
-      "title": "Octodev",
-      "titleHighlight": "se sumerge profundo",
-      "titleEnd": "en tu proyecto",
-      "description": "Con 8 brazos trabajando simultáneamente, abrazamos cada detalle de tu proyecto para entregar soluciones que realmente funcionan.",
-      "cta": "Conoce nuestros servicios"
+      "statement": "Octodev nació para ser lo opuesto a eso.",
+      "description": "Proceso transparente, entregas semanales y QA de verdad en cada etapa. Lo acompañas todo — sin sorpresas en el plazo, el código o la factura.",
+      "cta": "Cómo trabajamos"
     }
   },
   "services": {
-    "title": "Lo que nuestros",
-    "titleHighlight": "8 brazos",
-    "titleEnd": "hacen",
-    "subtitle": "Servicios completos de desarrollo de software para llevar tu proyecto del concepto al deploy",
+    "kicker": "Servicios",
+    "title": "Del sitio corporativo al",
+    "titleAccent": "SaaS completo.",
+    "subtitle": "Seis frentes, un estándar: código limpio, probado y listo para escalar.",
     "webApps": {
-      "title": "Web Apps",
-      "description": "Aplicaciones web modernas y escalables con React, Next.js y las mejores tecnologías del mercado."
+      "title": "Web Apps & SaaS",
+      "description": "Aplicaciones web modernas y escalables con React, Next.js y TypeScript — de la landing page al producto completo."
     },
     "mobile": {
-      "title": "Móvil",
-      "description": "Apps nativas e híbridas para iOS y Android que tus usuarios amarán."
+      "title": "Apps Móviles",
+      "description": "Apps para iOS y Android con React Native — una base de código, experiencia nativa."
     },
     "ecommerce": {
       "title": "E-commerce",
-      "description": "Tiendas online completas y optimizadas para convertir visitantes en clientes."
+      "description": "Tiendas rápidas y optimizadas para convertir: vitrina, checkout, pagos e integración de inventario."
     },
     "integrations": {
-      "title": "Integraciones",
-      "description": "Conectamos tus sistemas, APIs y ERPs para automatizar procesos."
+      "title": "Integraciones & APIs",
+      "description": "Conectamos sistemas, ERPs y APIs — pagos, WhatsApp, CRMs — para automatizar tu operación."
     },
-    "consulting": {
-      "title": "Consultoría",
-      "description": "Estrategia tech, arquitectura de sistemas y mentoría para tu equipo."
+    "qa": {
+      "title": "QA & Automatización de Pruebas",
+      "description": "Pruebas automatizadas con Playwright y Robot Framework. Tu sistema estable antes de llegar al usuario."
     },
     "support": {
-      "title": "Soporte",
-      "description": "Mantenimiento continuo, correcciones y evolución de tu software."
+      "title": "Soporte & Evolución",
+      "description": "Mantenimiento continuo, monitoreo y nuevas funcionalidades. Tu software nunca deja de evolucionar."
     },
-    "cta": "Solicitar Presupuesto"
+    "cta": "Solicitar presupuesto"
   },
-  "projects": {
-    "title": "Proyectos que",
-    "titleHighlight": "generan resultados",
-    "subtitle": "Del concepto al deploy — cada proyecto es desarrollado para impulsar tu negocio",
-    "viewProject": "Ver proyecto",
+  "work": {
+    "kicker": "Proyectos",
+    "title": "Trabajo que",
+    "titleAccent": "genera resultados.",
+    "subtitle": "Proyectos reales, en línea, generando valor para clientes reales.",
+    "visit": "Visitar proyecto",
+    "items": {
+      "academiay": {
+        "category": "Sistema Web",
+        "description": "Ranking gamificado para una comunidad de League of Legends, con integración a la API de Riot Games y dashboards en tiempo real.",
+        "metric": "500+ usuarios activos"
+      },
+      "biotrack": {
+        "category": "SaaS",
+        "description": "Plataforma que conecta entrenadores personales y alumnos: entrenamientos, evaluaciones físicas y seguimiento con gráficos.",
+        "metric": "Entrenadores + alumnos"
+      },
+      "bugless": {
+        "category": "Landing Page",
+        "description": "Landing page de alta conversión para una agencia de software, con animaciones fluidas y enfoque en captación de leads.",
+        "metric": "Alta conversión"
+      },
+      "rds": {
+        "category": "Sitio Corporativo",
+        "description": "Sitio corporativo para una consultora empresarial, enfocado en credibilidad y generación de oportunidades.",
+        "metric": "Presencia profesional"
+      },
+      "esc": {
+        "category": "Landing Page",
+        "description": "Captación de leads para una financiera: formularios inteligentes, validación en tiempo real e integración con CRM.",
+        "metric": "Leads calificados"
+      }
+    },
     "stats": {
-      "satisfaction": "Satisfacción",
-      "avgRating": "Valoración media",
-      "avgDelivery": "Tiempo medio de entrega",
-      "responseTime": "Tiempo de respuesta"
+      "satisfaction": "satisfacción",
+      "avgRating": "calificación media",
+      "avgDelivery": "entrega media",
+      "responseTime": "respuesta"
     },
     "cta": {
-      "text": "Tu proyecto puede ser el próximo caso de éxito",
-      "button": "Solicitar Presupuesto Gratis"
+      "text": "Tu proyecto puede ser el próximo de esta lista.",
+      "button": "Empezar mi proyecto"
     }
   },
   "process": {
-    "title": "Cómo",
-    "titleHighlight": "abrazamos",
-    "titleEnd": "tu proyecto",
-    "subtitle": "Un proceso transparente y ágil de principio a fin",
+    "kicker": "Proceso",
+    "title": "Simple por fuera,",
+    "titleAccent": "riguroso por dentro.",
+    "subtitle": "Cuatro etapas, cero misterio. Sabes exactamente qué está pasando en cada una.",
     "steps": {
       "discovery": {
         "title": "Discovery",
-        "description": "Nos sumergimos profundo para entender tu negocio, objetivos y desafíos. Análisis completo de requisitos.",
-        "duration": "1-3 días"
+        "description": "Una conversación para entender tu negocio, objetivos y plazos. Salimos con requisitos claros y priorizados.",
+        "duration": "1–3 días"
       },
       "proposal": {
         "title": "Propuesta",
-        "description": "Presentamos una solución personalizada con alcance, cronograma e inversión transparentes.",
-        "duration": "24-48h"
+        "description": "Alcance, cronograma e inversión por escrito. Sin letra pequeña, sin sorpresas después.",
+        "duration": "24–48h"
       },
       "development": {
         "title": "Desarrollo",
-        "description": "Nuestros 8 brazos trabajan en sprints ágiles, con entregas incrementales y feedback continuo.",
-        "duration": "1-4 semanas"
+        "description": "Sprints semanales con entregas que puedes probar. El feedback se convierte en ajustes la semana siguiente.",
+        "duration": "1–4 semanas"
       },
       "delivery": {
-        "title": "Entrega y Soporte",
-        "description": "Deploy en producción, capacitación del equipo y soporte continuo para garantizar el éxito.",
+        "title": "Entrega & Soporte",
+        "description": "Deploy en producción, capacitación y 30 días de soporte gratuito. Después, planes de evolución continua.",
         "duration": "Continuo"
       }
     },
     "cta": {
-      "text": "¿Listo para comenzar tu viaje?",
-      "button": "Hablemos"
+      "text": "¿Listo para la etapa 01?",
+      "button": "Agendar conversación"
     }
   },
   "about": {
+    "kicker": "Quién lo construye",
     "title": "El cerebro detrás de los",
-    "titleHighlight": "8 brazos",
-    "founder": "Enok",
-    "role": "Fundador y Desarrollador",
-    "quote": "Transformo complejidad en soluciones elegantes",
-    "bio": "Desarrollador Full Stack apasionado por crear experiencias digitales excepcionales. Con años de experiencia en proyectos de todos los tamaños, lidero Octodev con enfoque en calidad, innovación y resultados reales para cada cliente."
+    "titleAccent": "8 brazos.",
+    "founder": "Enok Rocha",
+    "role": "Founder & Ingeniero de Software",
+    "quote": "Transformo complejidad en soluciones elegantes.",
+    "bio": "Científico de la computación por la UFMG, con más de 6 años entre desarrollo full-stack e ingeniería de calidad en grandes empresas. Cada proyecto de Octodev hereda ese estándar: código que funciona, probado antes de que lo veas.",
+    "facts": {
+      "experience": "6+ años de experiencia",
+      "degree": "Ciencias de la Computación — UFMG",
+      "specialty": "Especialista en QA & Automatización"
+    }
   },
   "testimonials": {
-    "title": "Lo que dicen sobre",
-    "titleHighlight": "Octodev",
-    "subtitle": "Clientes satisfechos en aguas profundas"
+    "kicker": "Testimonios",
+    "title": "Quien nos contrató,",
+    "titleAccent": "nos recomienda.",
+    "subtitle": "Reseñas reales de proyectos entregados."
   },
   "faq": {
+    "kicker": "FAQ",
     "title": "Preguntas",
-    "titleHighlight": "Frecuentes",
-    "subtitle": "Resuelve tus dudas sobre nuestro proceso de desarrollo",
+    "titleAccent": "frecuentes.",
+    "subtitle": "Lo que todos preguntan antes de cerrar.",
     "questions": {
-      "cost": {
-        "question": "¿Cuánto cuesta desarrollar una aplicación o sistema?",
-        "answer": "El precio varía según la complejidad del proyecto. Landing pages desde $150, sistemas web desde $600 y aplicaciones móviles desde $1,000. Hacemos presupuesto gratis y personalizado para cada proyecto."
-      },
       "timeline": {
-        "question": "¿Cuál es el plazo de entrega?",
-        "answer": "Landing pages: 5-10 días. Sistemas web simples: 2-4 semanas. Aplicaciones y sistemas complejos: 4-12 semanas. Trabajamos con sprints semanales y puedes seguir todo el progreso."
+        "question": "¿Cuáles son los plazos de entrega?",
+        "answer": "Landing pages: 5–10 días. Sistemas web simples: 2–4 semanas. Apps y sistemas complejos: 4–12 semanas. Trabajamos en sprints semanales y sigues todo el progreso."
       },
       "maintenance": {
         "question": "¿Hacen mantenimiento después de la entrega?",
-        "answer": "¡Sí! Ofrecemos 30 días de soporte gratis después de la entrega. Después, tenemos planes de mantenimiento mensual que incluyen actualizaciones, correcciones y pequeñas mejoras."
+        "answer": "Sí. Son 30 días de soporte gratuito tras la entrega. Después, planes de mantenimiento mensual con actualizaciones, correcciones y pequeñas mejoras."
       },
       "process": {
         "question": "¿Cómo funciona el proceso de desarrollo?",
-        "answer": "Comenzamos con una reunión para entender tu necesidad. Después, enviamos propuesta detallada. Una vez aprobado, iniciamos el desarrollo con entregas semanales para que puedas seguir. Al final, hacemos pruebas y ajustes hasta tu aprobación."
+        "answer": "Empezamos con una conversación para entender tu necesidad. Luego, una propuesta detallada por escrito. Aprobada, el desarrollo corre en sprints con entregas semanales. Al final, pruebas y ajustes hasta tu aprobación."
       },
       "payment": {
-        "question": "¿Necesito pagar todo por adelantado?",
-        "answer": "No. Trabajamos con 50% en la aprobación y 50% en la entrega. Para proyectos mayores, podemos dividir en más cuotas según las entregas."
+        "question": "¿Debo pagar todo por adelantado?",
+        "answer": "No. Trabajamos con 50% al aprobar y 50% al entregar. Para proyectos más grandes, dividimos en más cuotas según las entregas."
       },
       "technology": {
         "question": "¿Con qué tecnologías trabajan?",
-        "answer": "Trabajamos con las tecnologías más modernas del mercado: React, Next.js, React Native, Node.js, TypeScript, Python, PostgreSQL, MongoDB e integraciones con APIs diversas (pagos, WhatsApp, CRMs, etc)."
+        "answer": "React, Next.js, React Native, Node.js, TypeScript, Go, Python, PostgreSQL e integraciones con APIs diversas (pagos, WhatsApp, CRMs). Siempre la herramienta correcta para el problema — no la más de moda."
       },
       "satisfaction": {
         "question": "¿Y si no me gusta el resultado?",
-        "answer": "Hacemos revisiones ilimitadas durante el desarrollo. Apruebas cada etapa antes de avanzar. Nuestra tasa de satisfacción es del 100% porque priorizamos comunicación clara y entregas alineadas."
+        "answer": "Apruebas cada etapa antes de avanzar, con revisiones durante todo el desarrollo. Nuestra tasa de satisfacción es del 100% porque nada sale a producción sin tu visto bueno."
       },
       "companySize": {
-        "question": "¿Atienden empresas de qué tamaño?",
-        "answer": "Atendemos desde emprendedores individuales hasta empresas medianas. Cada proyecto recibe atención personalizada, independiente del tamaño."
+        "question": "¿Con empresas de qué tamaño trabajan?",
+        "answer": "Desde emprendedores individuales hasta empresas medianas. Cada proyecto recibe atención directa de quien lo construye — sin intermediarios."
       }
     },
     "cta": {
-      "text": "¿Aún tienes dudas?",
-      "button": "Contáctanos"
+      "text": "¿No encontraste tu respuesta?",
+      "button": "Hablar por WhatsApp"
     }
   },
   "contact": {
-    "title": "¿Vamos a sacar tu proyecto del papel?",
-    "subtitle": "Presupuesto gratis y sin compromiso. Respuesta garantizada en hasta 24 horas.",
-    "availability": "Disponible ahora",
-    "availabilityText": "Aceptando nuevos proyectos para Enero/2026",
-    "whatsapp": {
-      "title": "WhatsApp",
-      "description": "Respuesta rápida en hasta 24h",
-      "cta": "Iniciar conversación"
-    },
-    "email": {
-      "title": "Email",
-      "description": "Para propuestas detalladas"
-    },
-    "cta": "Solicitar Presupuesto Gratis",
+    "kicker": "Contacto",
+    "title": "¿Sacamos tu proyecto",
+    "titleAccent": "del papel?",
+    "subtitle": "Presupuesto gratuito, sin compromiso. Respuesta en hasta 24h — directo con quien lo va a construir.",
+    "availability": "Disponible para nuevos proyectos",
+    "ctaPrimary": "Hablar por WhatsApp",
+    "ctaEmail": "o por correo",
     "guarantee": {
-      "title": "Garantía de Satisfacción",
-      "description": "Si no quedas 100% satisfecho con el resultado, hacemos los cambios necesarios sin costo adicional hasta tu aprobación final."
+      "title": "Garantía de satisfacción",
+      "description": "Revisiones hasta tu aprobación final, sin costo adicional. Si no quedó bien, lo rehacemos."
     },
-    "badges": {
-      "rating": "de valoración",
-      "projects": "proyectos entregados",
-      "delivery": "Entrega en hasta 30 días"
+    "bullets": {
+      "freeQuote": "Presupuesto gratuito",
+      "response": "Respuesta en 24h",
+      "satisfaction": "Garantía de satisfacción"
     }
   },
   "footer": {
-    "tagline": "Desarrollo de software que abraza tu negocio. Soluciones web, móviles e integraciones.",
-    "slogan": "8 brazos. Cero bugs. Posibilidades infinitas.",
-    "services": "Servicios",
-    "company": "Empresa",
+    "tagline": "Software a medida — web, móvil e integraciones. De Belo Horizonte para todo el mundo.",
+    "nav": "Navegación",
     "contactTitle": "Contacto",
-    "location": "Todo el mundo",
+    "social": "Social",
+    "location": "Belo Horizonte — MG, Brasil",
     "copyright": "Todos los derechos reservados.",
-    "madeWith": "Hecho con 8 tentáculos",
-    "links": {
-      "cases": "Casos de Éxito",
-      "about": "Nosotros",
-      "process": "Proceso",
-      "contact": "Contacto"
-    }
+    "backToTop": "Volver arriba"
   },
-  "whatsappMessage": "Hola, vine de tu sitio web y me gustaría un presupuesto"
+  "whatsappMessage": "Hola, vi tu sitio web y me gustaría un presupuesto"
 }

@@ -1,233 +1,247 @@
 {
   "metadata": {
     "title": "Octodev | Software Development",
-    "description": "Custom software development: web applications, mobile, integrations and tech consulting. Digital solutions that embrace your business completely."
+    "description": "Custom software development: web applications, mobile, integrations and QA. From concept to deploy, with clean code and delivery in weeks."
   },
   "header": {
     "services": "Services",
-    "cases": "Success Cases",
+    "work": "Work",
     "process": "Process",
     "about": "About",
+    "faq": "FAQ",
     "contact": "Contact",
-    "startProject": "Start Project"
+    "startProject": "Start a project"
   },
   "hero": {
-    "badge": "Open slots for new projects",
-    "headline": "Project stuck?",
-    "headlineHighlight": "We unstick it.",
-    "subheadline": "We turn your idea into working software in",
-    "subheadlineBold": "up to 30 days",
-    "subheadlineEnd": "Web, mobile, integrations — with clean code and ongoing support.",
-    "freeQuote": "Free quote",
-    "response24h": "24h response",
-    "satisfaction": "Satisfaction guarantee",
-    "ctaPrimary": "Get my free quote",
-    "ctaSecondary": "View Success Cases",
+    "badge": "Available for new projects",
+    "headline1": "Your software live",
+    "headlineAccent": "in up to 30 days.",
+    "subheadline": "Custom websites, apps and systems for those who can't wait. Clean code, real deadlines and the quality of someone who hunts bugs for a living.",
+    "ctaPrimary": "Get a free quote",
+    "ctaSecondary": "See our work",
     "stats": {
-      "projects": "Projects Delivered",
-      "clients": "Satisfied Clients",
-      "rating": "Rating"
-    }
+      "projects": "projects delivered",
+      "rating": "average rating",
+      "satisfaction": "happy clients",
+      "response": "response time"
+    },
+    "scroll": "Scroll to explore"
   },
   "problems": {
-    "title": "Is your project stuck in",
-    "titleHighlight": "shallow waters?",
-    "subtitle": "Common problems that sink software projects",
+    "kicker": "The problem",
+    "title": "Why do so many software projects",
+    "titleAccent": "sink?",
     "delays": {
-      "title": "Delays",
-      "description": "Missed deadlines and late deliveries"
+      "title": "Deadlines that never arrive",
+      "description": "Weeks become months. The launch slips, and the market won't wait."
     },
     "bugs": {
-      "title": "Bugs",
-      "description": "Unstable systems full of errors"
+      "title": "Bugs in production",
+      "description": "An unstable system scares customers away and burns your brand's reputation."
     },
     "costs": {
-      "title": "Costs",
-      "description": "Budgets that spiral out of control"
+      "title": "Budget out of control",
+      "description": "Poorly defined scope becomes rework — and rework becomes invoices."
     },
     "solution": {
-      "title": "Octodev",
-      "titleHighlight": "dives deep",
-      "titleEnd": "into your project",
-      "description": "With 8 arms working simultaneously, we embrace every detail of your project to deliver solutions that really work.",
-      "cta": "Discover our services"
+      "statement": "Octodev was born to be the opposite of that.",
+      "description": "Transparent process, weekly deliveries and real QA at every step. You follow everything — no surprises in the deadline, the code or the bill.",
+      "cta": "How we work"
     }
   },
   "services": {
-    "title": "What our",
-    "titleHighlight": "8 arms",
-    "titleEnd": "do",
-    "subtitle": "Complete software development services to take your project from concept to deploy",
+    "kicker": "Services",
+    "title": "From company websites to",
+    "titleAccent": "full SaaS products.",
+    "subtitle": "Six fronts, one standard: clean, tested code that's ready to scale.",
     "webApps": {
-      "title": "Web Apps",
-      "description": "Modern and scalable web applications with React, Next.js and the best technologies on the market."
+      "title": "Web Apps & SaaS",
+      "description": "Modern, scalable web applications with React, Next.js and TypeScript — from landing pages to full products."
     },
     "mobile": {
-      "title": "Mobile",
-      "description": "Native and hybrid apps for iOS and Android that your users will love."
+      "title": "Mobile Apps",
+      "description": "iOS and Android apps with React Native — one codebase, native experience."
     },
     "ecommerce": {
       "title": "E-commerce",
-      "description": "Complete online stores optimized to convert visitors into customers."
+      "description": "Fast stores optimized to convert: storefront, checkout, payments and inventory integration."
     },
     "integrations": {
-      "title": "Integrations",
-      "description": "We connect your systems, APIs and ERPs to automate processes."
+      "title": "Integrations & APIs",
+      "description": "We connect systems, ERPs and APIs — payments, WhatsApp, CRMs — to automate your operation."
     },
-    "consulting": {
-      "title": "Consulting",
-      "description": "Tech strategy, system architecture and mentoring for your team."
+    "qa": {
+      "title": "QA & Test Automation",
+      "description": "Automated testing with Playwright and Robot Framework. Your system stable before it reaches users."
     },
     "support": {
-      "title": "Support",
-      "description": "Ongoing maintenance, fixes and evolution of your software."
+      "title": "Support & Evolution",
+      "description": "Continuous maintenance, monitoring and new features. Your software never stops evolving."
     },
-    "cta": "Request Quote"
+    "cta": "Request a quote"
   },
-  "projects": {
+  "work": {
+    "kicker": "Work",
     "title": "Projects that",
-    "titleHighlight": "deliver results",
-    "subtitle": "From concept to deploy — each project is developed to boost your business",
-    "viewProject": "View project",
+    "titleAccent": "deliver results.",
+    "subtitle": "Real projects, live, creating value for real clients.",
+    "visit": "Visit project",
+    "items": {
+      "academiay": {
+        "category": "Web System",
+        "description": "Gamified ranking for a League of Legends community, with Riot Games API integration and real-time dashboards.",
+        "metric": "500+ active users"
+      },
+      "biotrack": {
+        "category": "SaaS",
+        "description": "Platform connecting personal trainers and students: workouts, physical assessments and progress tracking with charts.",
+        "metric": "Trainers + students"
+      },
+      "bugless": {
+        "category": "Landing Page",
+        "description": "High-conversion landing page for a software agency, with fluid animations and a focus on lead capture.",
+        "metric": "High conversion"
+      },
+      "rds": {
+        "category": "Company Website",
+        "description": "Corporate website for a business consultancy, focused on credibility and opportunity generation.",
+        "metric": "Professional presence"
+      },
+      "esc": {
+        "category": "Landing Page",
+        "description": "Lead capture for a lending company: smart forms, real-time validation and CRM integration.",
+        "metric": "Qualified leads"
+      }
+    },
     "stats": {
-      "satisfaction": "Satisfaction",
-      "avgRating": "Average rating",
-      "avgDelivery": "Average delivery time",
-      "responseTime": "Response time"
+      "satisfaction": "satisfaction",
+      "avgRating": "average rating",
+      "avgDelivery": "average delivery",
+      "responseTime": "response"
     },
     "cta": {
-      "text": "Your project could be the next success case",
-      "button": "Request Free Quote"
+      "text": "Your project could be next on this list.",
+      "button": "Start my project"
     }
   },
   "process": {
-    "title": "How we",
-    "titleHighlight": "embrace",
-    "titleEnd": "your project",
-    "subtitle": "A transparent and agile process from start to finish",
+    "kicker": "Process",
+    "title": "Simple on the outside,",
+    "titleAccent": "rigorous on the inside.",
+    "subtitle": "Four steps, zero mystery. You know exactly what's happening in each one.",
     "steps": {
       "discovery": {
         "title": "Discovery",
-        "description": "We dive deep to understand your business, goals and challenges. Complete requirements analysis.",
-        "duration": "1-3 days"
+        "description": "A conversation to understand your business, goals and timeline. We leave with clear, prioritized requirements.",
+        "duration": "1–3 days"
       },
       "proposal": {
         "title": "Proposal",
-        "description": "We present a customized solution with transparent scope, timeline and investment.",
-        "duration": "24-48h"
+        "description": "Scope, schedule and investment in writing. No fine print, no surprises later.",
+        "duration": "24–48h"
       },
       "development": {
         "title": "Development",
-        "description": "Our 8 arms work in agile sprints, with incremental deliveries and continuous feedback.",
-        "duration": "1-4 weeks"
+        "description": "Weekly sprints with deliveries you can test. Feedback becomes adjustments the following week.",
+        "duration": "1–4 weeks"
       },
       "delivery": {
         "title": "Delivery & Support",
-        "description": "Production deploy, team training and ongoing support to ensure success.",
+        "description": "Production deploy, training and 30 days of free support. Then, continuous evolution plans.",
         "duration": "Ongoing"
       }
     },
     "cta": {
-      "text": "Ready to start your journey?",
-      "button": "Let's Talk"
+      "text": "Ready for step 01?",
+      "button": "Book a call"
     }
   },
   "about": {
+    "kicker": "Who builds it",
     "title": "The brain behind the",
-    "titleHighlight": "8 arms",
-    "founder": "Enok",
-    "role": "Founder & Developer",
-    "quote": "I transform complexity into elegant solutions",
-    "bio": "Full Stack Developer passionate about creating exceptional digital experiences. With years of experience in projects of all sizes, I lead Octodev with focus on quality, innovation and real results for each client."
+    "titleAccent": "8 arms.",
+    "founder": "Enok Rocha",
+    "role": "Founder & Software Engineer",
+    "quote": "I turn complexity into elegant solutions.",
+    "bio": "Computer scientist from UFMG, with 6+ years across full-stack development and quality engineering at large companies. Every Octodev project inherits that standard: code that works, tested before you see it.",
+    "facts": {
+      "experience": "6+ years of experience",
+      "degree": "Computer Science — UFMG",
+      "specialty": "QA & Automation specialist"
+    }
   },
   "testimonials": {
-    "title": "What they say about",
-    "titleHighlight": "Octodev",
-    "subtitle": "Satisfied clients in deep waters"
+    "kicker": "Testimonials",
+    "title": "Those who hired us,",
+    "titleAccent": "recommend us.",
+    "subtitle": "Real reviews from delivered projects."
   },
   "faq": {
-    "title": "Frequently Asked",
-    "titleHighlight": "Questions",
-    "subtitle": "Clear your doubts about our development process",
+    "kicker": "FAQ",
+    "title": "Frequently asked",
+    "titleAccent": "questions.",
+    "subtitle": "What everyone asks before signing.",
     "questions": {
-      "cost": {
-        "question": "How much does it cost to develop an app or system?",
-        "answer": "The price varies according to project complexity. Landing pages start at $150, web systems from $600 and mobile apps from $1,000. We provide free and personalized quotes for each project."
-      },
       "timeline": {
-        "question": "What is the delivery timeline?",
-        "answer": "Landing pages: 5-10 days. Simple web systems: 2-4 weeks. Complex apps and systems: 4-12 weeks. We work with weekly sprints and you follow all progress."
+        "question": "What are the delivery timelines?",
+        "answer": "Landing pages: 5–10 days. Simple web systems: 2–4 weeks. Complex apps and systems: 4–12 weeks. We work in weekly sprints and you follow all the progress."
       },
       "maintenance": {
         "question": "Do you provide maintenance after delivery?",
-        "answer": "Yes! We offer 30 days of free support after delivery. After that, we have monthly maintenance plans that include updates, fixes and small improvements."
+        "answer": "Yes. You get 30 days of free support after delivery. After that, monthly maintenance plans cover updates, fixes and small improvements."
       },
       "process": {
         "question": "How does the development process work?",
-        "answer": "We start with a meeting to understand your needs. Then, we send a detailed proposal. Once approved, we begin development with weekly deliveries for you to follow. At the end, we test and adjust until your approval."
+        "answer": "We start with a conversation to understand your needs. Then, a detailed written proposal. Once approved, development runs in sprints with weekly deliveries. At the end, testing and adjustments until your approval."
       },
       "payment": {
         "question": "Do I need to pay everything upfront?",
-        "answer": "No. We work with 50% on approval and 50% on delivery. For larger projects, we can split into more installments according to deliveries."
+        "answer": "No. We work with 50% on approval and 50% on delivery. For larger projects, we split into more installments tied to deliveries."
       },
       "technology": {
-        "question": "What technologies do you work with?",
-        "answer": "We work with the most modern technologies on the market: React, Next.js, React Native, Node.js, TypeScript, Python, PostgreSQL, MongoDB and integrations with various APIs (payments, WhatsApp, CRMs, etc)."
+        "question": "Which technologies do you work with?",
+        "answer": "React, Next.js, React Native, Node.js, TypeScript, Go, Python, PostgreSQL and integrations with various APIs (payments, WhatsApp, CRMs). Always the right tool for the problem — not the most hyped one."
       },
       "satisfaction": {
         "question": "What if I don't like the result?",
-        "answer": "We make unlimited revisions during development. You approve each stage before we move forward. Our satisfaction rate is 100% because we prioritize clear communication and aligned deliveries."
+        "answer": "You approve each stage before we move forward, with revisions throughout development. Our satisfaction rate is 100% because nothing goes live without your sign-off."
       },
       "companySize": {
-        "question": "What size companies do you serve?",
-        "answer": "We serve from individual entrepreneurs to medium-sized companies. Each project receives personalized attention, regardless of size."
+        "question": "What size of company do you work with?",
+        "answer": "From solo entrepreneurs to mid-sized companies. Every project gets direct attention from the person building it — no middlemen."
       }
     },
     "cta": {
-      "text": "Still have questions?",
-      "button": "Contact Us"
+      "text": "Didn't find your answer?",
+      "button": "Chat on WhatsApp"
     }
   },
   "contact": {
-    "title": "Let's get your project off the ground?",
-    "subtitle": "Free quote with no commitment. Guaranteed response within 24 hours.",
-    "availability": "Available now",
-    "availabilityText": "Accepting new projects for January/2026",
-    "whatsapp": {
-      "title": "WhatsApp",
-      "description": "Quick response within 24h",
-      "cta": "Start conversation"
-    },
-    "email": {
-      "title": "Email",
-      "description": "For detailed proposals"
-    },
-    "cta": "Request Free Quote",
+    "kicker": "Contact",
+    "title": "Let's get your project",
+    "titleAccent": "off the ground?",
+    "subtitle": "Free quote, no strings attached. Response within 24h — straight from the person who will build it.",
+    "availability": "Available for new projects",
+    "ctaPrimary": "Chat on WhatsApp",
+    "ctaEmail": "or by email",
     "guarantee": {
-      "title": "Satisfaction Guarantee",
-      "description": "If you're not 100% satisfied with the result, we make the necessary changes at no additional cost until your final approval."
+      "title": "Satisfaction guarantee",
+      "description": "Revisions until your final approval, at no extra cost. If it's not right, we redo it."
     },
-    "badges": {
-      "rating": "rating",
-      "projects": "projects delivered",
-      "delivery": "Delivery in up to 30 days"
+    "bullets": {
+      "freeQuote": "Free quote",
+      "response": "Response in 24h",
+      "satisfaction": "Satisfaction guarantee"
     }
   },
   "footer": {
-    "tagline": "Software development that embraces your business. Web, mobile and integration solutions.",
-    "slogan": "8 arms. Zero bugs. Infinite possibilities.",
-    "services": "Services",
-    "company": "Company",
+    "tagline": "Custom software — web, mobile and integrations. From Belo Horizonte to the world.",
+    "nav": "Navigation",
     "contactTitle": "Contact",
-    "location": "Worldwide",
+    "social": "Social",
+    "location": "Belo Horizonte — MG, Brazil",
     "copyright": "All rights reserved.",
-    "madeWith": "Made with 8 tentacles",
-    "links": {
-      "cases": "Success Cases",
-      "about": "About",
-      "process": "Process",
-      "contact": "Contact"
-    }
+    "backToTop": "Back to top"
   },
-  "whatsappMessage": "Hello, I came from your website and would like a quote"
+  "whatsappMessage": "Hi, I found your website and I'd like a quote"
 }

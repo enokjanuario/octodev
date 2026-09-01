@@ -1,198 +1,107 @@
 'use client'
 
-import { motion, useInView } from 'framer-motion'
-import { useRef } from 'react'
+import { motion } from 'framer-motion'
 import { useTranslations } from 'next-intl'
+import Icon, { type IconName } from '@/components/ui/Icon'
+import SectionHeader from '@/components/ui/SectionHeader'
+import { fadeUp, VIEWPORT } from '@/lib/motion'
 
-const tentacleDirections = [
-  { startX: -200, startY: 0 },
-  { startX: 200, startY: 0 },
-  { startX: -200, startY: 0 },
-  { startX: 200, startY: 0 },
-  { startX: 0, startY: 200 },
-  { startX: 0, startY: 200 },
+type Service = {
+  key: string
+  icon: IconName
+  tech: string[]
+  featured?: boolean
+}
+
+const services: Service[] = [
+  { key: 'webApps', icon: 'monitor', tech: ['React', 'Next.js', 'TypeScript'], featured: true },
+  { key: 'mobile', icon: 'smartphone', tech: ['React Native', 'Expo', 'iOS/Android'] },
+  { key: 'ecommerce', icon: 'shopping-bag', tech: ['Checkout', 'Payments', 'SEO'] },
+  { key: 'integrations', icon: 'nodes', tech: ['REST', 'GraphQL', 'Webhooks'] },
+  { key: 'qa', icon: 'flask', tech: ['Playwright', 'Robot Framework', 'CI/CD'], featured: true },
+  { key: 'support', icon: 'refresh', tech: ['Monitoring', 'SLA', 'DevOps'] },
 ]
 
 export default function Services() {
   const t = useTranslations('services')
-  const sectionRef = useRef(null)
-  const isInView = useInView(sectionRef, { once: true, margin: '-100px' })
-
-  const services = [
-    {
-      icon: '🌐',
-      title: t('webApps.title'),
-      description: t('webApps.description'),
-      tech: ['React', 'Next.js', 'Node.js'],
-      gradient: 'from-purple-500 to-blue-500',
-    },
-    {
-      icon: '📱',
-      title: t('mobile.title'),
-      description: t('mobile.description'),
-      tech: ['React Native', 'Flutter', 'iOS/Android'],
-      gradient: 'from-cyan-500 to-blue-500',
-    },
-    {
-      icon: '🛒',
-      title: t('ecommerce.title'),
-      description: t('ecommerce.description'),
-      tech: ['Shopify', 'WooCommerce', 'Custom'],
-      gradient: 'from-green-500 to-cyan-500',
-    },
-    {
-      icon: '🔗',
-      title: t('integrations.title'),
-      description: t('integrations.description'),
-      tech: ['REST', 'GraphQL', 'Webhooks'],
-      gradient: 'from-orange-500 to-red-500',
-    },
-    {
-      icon: '💡',
-      title: t('consulting.title'),
-      description: t('consulting.description'),
-      tech: ['Architecture', 'Code Review', 'Mentoring'],
-      gradient: 'from-yellow-500 to-orange-500',
-    },
-    {
-      icon: '🛠️',
-      title: t('support.title'),
-      description: t('support.description'),
-      tech: ['24/7', 'SLA', 'Monitoring'],
-      gradient: 'from-pink-500 to-purple-500',
-    },
-  ]
 
   return (
-    <section
-      id="servicos"
-      ref={sectionRef}
-      className="relative py-24 md:py-32 overflow-hidden"
-    >
-      <div className="absolute inset-0 bg-deep-ocean" />
-
-      <svg className="absolute left-0 top-1/4 w-32 md:w-48 h-auto opacity-30" viewBox="0 0 200 400">
-        <motion.path
-          d="M0,200 Q50,180 80,220 Q110,260 90,320 Q70,380 120,400"
-          fill="none"
-          stroke="url(#service-tentacle)"
-          strokeWidth="20"
-          strokeLinecap="round"
-          initial={{ pathLength: 0, opacity: 0 }}
-          animate={isInView ? { pathLength: 1, opacity: 1 } : {}}
-          transition={{ duration: 2, delay: 0.5 }}
+    <section id="servicos" className="relative overflow-hidden border-t border-line py-28 md:py-36">
+      <div className="mx-auto max-w-7xl px-6 md:px-10">
+        <SectionHeader
+          index="01"
+          kicker={t('kicker')}
+          title={t('title')}
+          accent={t('titleAccent')}
+          subtitle={t('subtitle')}
         />
-        <defs>
-          <linearGradient id="service-tentacle" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#8b5cf6" />
-            <stop offset="100%" stopColor="#06b6d4" />
-          </linearGradient>
-        </defs>
-      </svg>
 
-      <svg className="absolute right-0 top-1/3 w-32 md:w-48 h-auto opacity-30" viewBox="0 0 200 400">
-        <motion.path
-          d="M200,200 Q150,180 120,220 Q90,260 110,320 Q130,380 80,400"
-          fill="none"
-          stroke="url(#service-tentacle)"
-          strokeWidth="20"
-          strokeLinecap="round"
-          initial={{ pathLength: 0, opacity: 0 }}
-          animate={isInView ? { pathLength: 1, opacity: 1 } : {}}
-          transition={{ duration: 2, delay: 0.7 }}
-        />
-      </svg>
-
-      <div className="relative z-10 container mx-auto px-6">
-        <motion.div
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
-        >
-          <h2 className="font-display text-3xl md:text-5xl font-bold mb-4">
-            {t('title')}{' '}
-            <span className="text-gradient">{t('titleHighlight')}</span>{' '}
-            {t('titleEnd')}
-          </h2>
-          <p className="font-body text-text-secondary text-lg max-w-2xl mx-auto">
-            {t('subtitle')}
-          </p>
-        </motion.div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        {/* Bento grid: featured cards span 2 columns on desktop */}
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
           {services.map((service, index) => (
             <motion.div
-              key={service.title}
-              className="relative group"
-              initial={{
-                opacity: 0,
-                x: tentacleDirections[index].startX,
-                y: tentacleDirections[index].startY,
-              }}
-              animate={isInView ? { opacity: 1, x: 0, y: 0 } : {}}
-              transition={{
-                delay: 0.3 + index * 0.15,
-                duration: 0.8,
-                type: 'spring',
-                stiffness: 100,
-              }}
+              key={service.key}
+              className={`group relative flex flex-col justify-between overflow-hidden rounded-xl border border-line bg-deep-ocean/60 p-8 transition-colors duration-500 hover:border-octopus-purple/40 ${
+                service.featured ? 'lg:col-span-2' : ''
+              }`}
+              initial="hidden"
+              whileInView="visible"
+              viewport={VIEWPORT}
+              variants={fadeUp}
+              custom={0.06 * index}
             >
-              <motion.div
-                className="card-glass h-full p-8 relative overflow-hidden"
-                whileHover={{ y: -8 }}
-                transition={{ duration: 0.3 }}
-              >
-                <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`} />
-                <div className="absolute -top-2 -left-2 w-4 h-4 rounded-full bg-tentacle-cyan opacity-0 group-hover:opacity-60 transition-all duration-300 blur-sm" />
-                <div className="absolute -top-2 -right-2 w-3 h-3 rounded-full bg-octopus-purple opacity-0 group-hover:opacity-60 transition-all duration-300 blur-sm" />
-                <div className="absolute -bottom-2 -left-2 w-3 h-3 rounded-full bg-octopus-purple opacity-0 group-hover:opacity-60 transition-all duration-300 blur-sm" />
-                <div className="absolute -bottom-2 -right-2 w-4 h-4 rounded-full bg-tentacle-cyan opacity-0 group-hover:opacity-60 transition-all duration-300 blur-sm" />
+              {/* Corner glow on hover */}
+              <div
+                className="pointer-events-none absolute -right-20 -top-20 h-48 w-48 rounded-full opacity-0 transition-opacity duration-700 group-hover:opacity-100"
+                style={{ background: 'radial-gradient(circle, rgba(139,92,246,0.12) 0%, transparent 70%)' }}
+              />
 
-                <div className="relative z-10">
-                  <motion.div
-                    className="text-4xl mb-4"
-                    whileHover={{ scale: 1.2, rotate: 10 }}
-                    transition={{ type: 'spring', stiffness: 300 }}
-                  >
-                    {service.icon}
-                  </motion.div>
-                  <h3 className="font-display text-xl font-semibold mb-3 text-text-primary group-hover:text-gradient transition-all duration-300">
-                    {service.title}
-                  </h3>
-                  <p className="font-body text-text-secondary text-sm mb-6 leading-relaxed">
-                    {service.description}
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    {service.tech.map((tech) => (
-                      <span
-                        key={tech}
-                        className="font-mono text-xs px-3 py-1 rounded-full bg-white/5 text-text-secondary border border-white/10"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
+              <div>
+                <div className="mb-6 flex items-start justify-between">
+                  <span className="flex h-12 w-12 items-center justify-center rounded-lg border border-line text-tentacle-cyan transition-colors duration-300 group-hover:border-tentacle-cyan/40">
+                    <Icon name={service.icon} className="h-6 w-6" />
+                  </span>
+                  <span className="font-mono text-xs text-text-secondary/40">
+                    0{index + 1}
+                  </span>
                 </div>
-              </motion.div>
+                <h3 className="mb-3 font-display text-xl font-semibold text-text-primary">
+                  {t(`${service.key}.title`)}
+                </h3>
+                <p className="mb-8 font-body text-sm leading-relaxed text-text-secondary">
+                  {t(`${service.key}.description`)}
+                </p>
+              </div>
+
+              <div className="flex flex-wrap gap-2">
+                {service.tech.map((tech) => (
+                  <span
+                    key={tech}
+                    className="rounded-md border border-line px-2.5 py-1 font-mono text-[11px] text-text-secondary"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
             </motion.div>
           ))}
         </div>
 
         <motion.div
-          className="text-center mt-16"
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ delay: 1.5, duration: 0.8 }}
+          className="mt-14 flex justify-center md:justify-start"
+          initial="hidden"
+          whileInView="visible"
+          viewport={VIEWPORT}
+          variants={fadeUp}
+          custom={0.2}
         >
-          <motion.a
-            href="#contato"
-            className="btn-primary inline-flex items-center gap-2"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
+          <a href="#contato" className="btn-secondary group">
             {t('cta')}
-          </motion.a>
+            <Icon
+              name="arrow-up-right"
+              className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+            />
+          </a>
         </motion.div>
       </div>
     </section>

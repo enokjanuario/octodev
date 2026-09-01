@@ -1,236 +1,194 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import Image from 'next/image'
 import { useTranslations } from 'next-intl'
-import { HeroTentacles } from '../animations/TentaclesSVG'
-import GodRays from '../animations/GodRays'
+import Icon from '@/components/ui/Icon'
+import { whatsappLink } from '@/lib/site'
+import { EASE } from '@/lib/motion'
 
-const whatsappNumber = '5531991508940'
+const MARQUEE_ITEMS = [
+  'Web Apps',
+  'Mobile',
+  'E-commerce',
+  'SaaS',
+  'APIs',
+  'QA Automation',
+  'Landing Pages',
+  'Integrações',
+]
 
 export default function Hero() {
   const t = useTranslations('hero')
   const tCommon = useTranslations()
 
-  const whatsappMessage = encodeURIComponent(tCommon('whatsappMessage'))
-  const whatsappLink = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`
-
   const stats = [
     { value: '50+', label: t('stats.projects') },
-    { value: '100%', label: t('stats.clients') },
     { value: '5.0', label: t('stats.rating') },
+    { value: '100%', label: t('stats.satisfaction') },
+    { value: '<24h', label: t('stats.response') },
   ]
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Effects */}
-      <div className="absolute inset-0 bg-gradient-to-b from-abyss via-deep-ocean to-deep-ocean" />
-      <GodRays />
-      <HeroTentacles />
-
-      {/* Gradient Orbs */}
-      <motion.div
-        className="absolute top-1/4 left-1/4 w-[600px] h-[600px] rounded-full opacity-20"
+    <section className="relative flex min-h-screen flex-col justify-end overflow-hidden pt-32">
+      {/* Background: dot grid + soft glows + tentacle line art */}
+      <div
+        className="bg-dots absolute inset-0"
         style={{
-          background: 'radial-gradient(circle, rgba(139, 92, 246, 0.4) 0%, transparent 70%)',
-        }}
-        animate={{
-          scale: [1, 1.2, 1],
-          opacity: [0.15, 0.25, 0.15],
-        }}
-        transition={{
-          duration: 8,
-          repeat: Infinity,
-          ease: 'easeInOut',
+          maskImage: 'radial-gradient(ellipse 80% 60% at 30% 40%, black 0%, transparent 70%)',
+          WebkitMaskImage: 'radial-gradient(ellipse 80% 60% at 30% 40%, black 0%, transparent 70%)',
         }}
       />
-      <motion.div
-        className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] rounded-full opacity-15"
-        style={{
-          background: 'radial-gradient(circle, rgba(6, 182, 212, 0.4) 0%, transparent 70%)',
-        }}
-        animate={{
-          scale: [1.2, 1, 1.2],
-          opacity: [0.1, 0.2, 0.1],
-        }}
-        transition={{
-          duration: 10,
-          repeat: Infinity,
-          ease: 'easeInOut',
-        }}
+      <div
+        className="absolute -top-40 right-[-10%] h-[600px] w-[600px] rounded-full opacity-[0.12]"
+        style={{ background: 'radial-gradient(circle, #8b5cf6 0%, transparent 65%)' }}
+      />
+      <div
+        className="absolute bottom-0 left-[-15%] h-[500px] w-[500px] rounded-full opacity-[0.08]"
+        style={{ background: 'radial-gradient(circle, #06b6d4 0%, transparent 65%)' }}
       />
 
-      {/* Content */}
-      <div className="relative z-10 container mx-auto px-6 py-32">
-        <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
-          {/* Logo Animation */}
-          <motion.div
-            initial={{ scale: 0, rotate: -180 }}
-            animate={{ scale: 1, rotate: 0 }}
-            transition={{ duration: 1, ease: 'easeOut' }}
-            className="mb-8"
-          >
-            <Image
-              src="/logo.png"
-              alt="Octodev"
-              width={120}
-              height={120}
-              className="w-28 h-28 md:w-32 md:h-32 glow-effect"
-              priority
-            />
-          </motion.div>
+      {/* Signature tentacle curves — single elegant line work */}
+      <svg
+        className="pointer-events-none absolute right-0 top-0 hidden h-full w-1/2 lg:block"
+        viewBox="0 0 720 900"
+        fill="none"
+        preserveAspectRatio="xMaxYMid slice"
+        aria-hidden="true"
+      >
+        <motion.path
+          d="M760 80 C520 120 460 320 560 460 C640 570 600 700 440 760"
+          stroke="url(#hero-line-1)"
+          strokeWidth="1.5"
+          initial={{ pathLength: 0 }}
+          animate={{ pathLength: 1 }}
+          transition={{ duration: 2.2, ease: 'easeOut', delay: 0.4 }}
+        />
+        <motion.path
+          d="M780 220 C580 260 540 420 620 540 C680 630 660 740 540 800"
+          stroke="url(#hero-line-2)"
+          strokeWidth="1"
+          initial={{ pathLength: 0 }}
+          animate={{ pathLength: 1 }}
+          transition={{ duration: 2.6, ease: 'easeOut', delay: 0.7 }}
+        />
+        <defs>
+          <linearGradient id="hero-line-1" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stopColor="#8b5cf6" stopOpacity="0.5" />
+            <stop offset="100%" stopColor="#06b6d4" stopOpacity="0.15" />
+          </linearGradient>
+          <linearGradient id="hero-line-2" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stopColor="#06b6d4" stopOpacity="0.4" />
+            <stop offset="100%" stopColor="#8b5cf6" stopOpacity="0.1" />
+          </linearGradient>
+        </defs>
+      </svg>
 
-          {/* Urgency Badge */}
+      <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-1 flex-col justify-center px-6 md:px-10">
+        <div className="py-16">
+          {/* Availability badge */}
           <motion.div
-            className="mb-6"
-            initial={{ opacity: 0, y: -20 }}
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 0.6 }}
+            transition={{ duration: 0.6, ease: EASE }}
           >
-            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-500/10 border border-green-500/30 text-green-400 font-mono text-sm">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
-              </span>
+            <span className="inline-flex items-center gap-2.5 rounded-full border border-line px-4 py-2 font-mono text-xs uppercase tracking-widest text-text-secondary">
+              <span className="h-1.5 w-1.5 animate-pulse-dot rounded-full bg-emerald-400" />
               {t('badge')}
             </span>
           </motion.div>
 
-          {/* Headline - Foco em dor/benefício */}
+          {/* Headline */}
           <motion.h1
-            className="font-display text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight"
-            initial={{ opacity: 0, y: 30 }}
+            className="mt-8 font-display text-5xl font-bold leading-[0.98] tracking-tightest text-text-primary sm:text-6xl md:text-7xl lg:text-[5.5rem] xl:text-[6.5rem]"
+            initial={{ opacity: 0, y: 32 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3, duration: 0.8 }}
+            transition={{ delay: 0.1, duration: 0.8, ease: EASE }}
           >
-            {t('headline')}{' '}
-            <span className="text-gradient-animated">{t('headlineHighlight')}</span>
+            {t('headline1')}
+            <br />
+            <span className="text-accent">{t('headlineAccent')}</span>
           </motion.h1>
 
-          {/* Subheadline - Benefícios claros */}
+          {/* Subheadline */}
           <motion.p
-            className="font-body text-lg md:text-xl text-text-secondary mb-6 max-w-2xl"
-            initial={{ opacity: 0, y: 20 }}
+            className="mt-8 max-w-xl font-body text-lg leading-relaxed text-text-secondary md:text-xl"
+            initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5, duration: 0.8 }}
+            transition={{ delay: 0.25, duration: 0.8, ease: EASE }}
           >
-            {t('subheadline')} <strong className="text-text-primary">{t('subheadlineBold')}</strong>.{' '}
-            {t('subheadlineEnd')}
+            {t('subheadline')}
           </motion.p>
-
-          {/* Trust Indicators */}
-          <motion.div
-            className="flex flex-wrap justify-center gap-4 mb-10"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.6, duration: 0.8 }}
-          >
-            <span className="inline-flex items-center gap-1 text-sm text-text-secondary">
-              <svg className="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-              </svg>
-              {t('freeQuote')}
-            </span>
-            <span className="inline-flex items-center gap-1 text-sm text-text-secondary">
-              <svg className="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-              </svg>
-              {t('response24h')}
-            </span>
-            <span className="inline-flex items-center gap-1 text-sm text-text-secondary">
-              <svg className="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-              </svg>
-              {t('satisfaction')}
-            </span>
-          </motion.div>
 
           {/* CTAs */}
           <motion.div
-            className="flex flex-col sm:flex-row gap-4 mb-12"
-            initial={{ opacity: 0, y: 20 }}
+            className="mt-10 flex flex-col gap-4 sm:flex-row"
+            initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.7, duration: 0.8 }}
+            transition={{ delay: 0.4, duration: 0.8, ease: EASE }}
           >
-            <motion.a
-              href={whatsappLink}
+            <a
+              href={whatsappLink(tCommon('whatsappMessage'))}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-primary inline-flex items-center justify-center gap-2"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              className="btn-primary"
             >
-              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-              </svg>
+              <Icon name="whatsapp" className="h-5 w-5" />
               {t('ctaPrimary')}
-            </motion.a>
-            <motion.a
-              href="#projetos"
-              className="btn-secondary"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
+            </a>
+            <a href="#projetos" className="btn-secondary group">
               {t('ctaSecondary')}
-            </motion.a>
-          </motion.div>
-
-          {/* Stats */}
-          <motion.div
-            className="flex flex-wrap justify-center gap-8 md:gap-16"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.9, duration: 0.8 }}
-          >
-            {stats.map((stat, index) => (
-              <motion.div
-                key={stat.label}
-                className="text-center"
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 1 + index * 0.1 }}
-                whileHover={{ scale: 1.1 }}
-              >
-                <div className="font-display text-3xl md:text-4xl font-bold text-gradient mb-1">
-                  {stat.value}
-                </div>
-                <div className="font-body text-sm text-text-secondary">
-                  {stat.label}
-                </div>
-              </motion.div>
-            ))}
+              <Icon
+                name="arrow-right"
+                className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
+              />
+            </a>
           </motion.div>
         </div>
       </div>
 
-      {/* Wave Decoration */}
-      <div className="absolute bottom-0 left-0 right-0">
-        <svg
-          viewBox="0 0 1440 120"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          className="w-full h-auto"
-        >
-          <motion.path
-            d="M0,60 C240,120 480,0 720,60 C960,120 1200,0 1440,60 L1440,120 L0,120 Z"
-            fill="url(#wave-gradient)"
-            initial={{ d: 'M0,60 C240,120 480,0 720,60 C960,120 1200,0 1440,60 L1440,120 L0,120 Z' }}
-            animate={{
-              d: [
-                'M0,60 C240,120 480,0 720,60 C960,120 1200,0 1440,60 L1440,120 L0,120 Z',
-                'M0,80 C240,20 480,100 720,40 C960,0 1200,80 1440,40 L1440,120 L0,120 Z',
-                'M0,60 C240,120 480,0 720,60 C960,120 1200,0 1440,60 L1440,120 L0,120 Z',
-              ],
-            }}
-            transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
-          />
-          <defs>
-            <linearGradient id="wave-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" stopColor="rgba(10, 15, 28, 0)" />
-              <stop offset="100%" stopColor="#0a0f1c" />
-            </linearGradient>
-          </defs>
-        </svg>
+      {/* Stats strip */}
+      <motion.div
+        className="relative z-10 border-t border-line"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.6, duration: 0.8 }}
+      >
+        <div className="mx-auto grid max-w-7xl grid-cols-2 px-6 md:grid-cols-4 md:px-10">
+          {stats.map((stat, index) => (
+            <div
+              key={stat.label}
+              className={`flex flex-col gap-1 py-6 md:py-8 ${
+                index > 0 ? 'md:border-l md:border-line md:pl-8' : ''
+              }`}
+            >
+              <span className="font-display text-3xl font-bold text-text-primary md:text-4xl">
+                {stat.value}
+              </span>
+              <span className="font-mono text-[11px] uppercase tracking-widest text-text-secondary">
+                {stat.label}
+              </span>
+            </div>
+          ))}
+        </div>
+      </motion.div>
+
+      {/* Marquee */}
+      <div className="relative z-10 overflow-hidden border-t border-line bg-deep-ocean/50 py-5">
+        <div className="flex w-max animate-marquee gap-0">
+          {[0, 1].map((half) => (
+            <div key={half} className="flex shrink-0 items-center" aria-hidden={half === 1}>
+              {MARQUEE_ITEMS.map((item) => (
+                <span
+                  key={`${half}-${item}`}
+                  className="flex items-center gap-8 pr-8 font-display text-sm font-medium uppercase tracking-[0.2em] text-text-secondary/70"
+                >
+                  {item}
+                  <Icon name="spark" className="h-2.5 w-2.5 text-tentacle-cyan/50" />
+                </span>
+              ))}
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   )

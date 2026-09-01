@@ -1,6 +1,5 @@
 'use client'
 
-import { ParticlesBackground, FloatingBubbles, CustomCursor } from '@/components/animations'
 import Header from '@/components/layout/Header'
 import FloatingWhatsApp from '@/components/FloatingWhatsApp'
 import {
@@ -19,15 +18,8 @@ import {
 export default function Home() {
   return (
     <>
-      {/* Global Animations */}
-      <ParticlesBackground />
-      <FloatingBubbles />
-      <CustomCursor />
-
-      {/* Header */}
       <Header />
 
-      {/* Main Content */}
       <main>
         <Hero />
         <Problems />
@@ -40,10 +32,7 @@ export default function Home() {
         <Contact />
       </main>
 
-      {/* Footer */}
       <Footer />
-
-      {/* Floating WhatsApp Button */}
       <FloatingWhatsApp />
     </>
   )

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -11,11 +11,9 @@
   --tentacle-cyan: #06b6d4;
   --glow-purple: #a78bfa;
   --glow-cyan: #22d3ee;
-  --electric-blue: #3b82f6;
   --text-primary: #f8fafc;
   --text-secondary: #94a3b8;
-  --glass-white: rgba(255, 255, 255, 0.05);
-  --glass-border: rgba(255, 255, 255, 0.1);
+  --line: rgba(148, 163, 184, 0.12);
 }
 
 * {
@@ -30,14 +28,19 @@ html {
 
 body {
   font-family: 'Plus Jakarta Sans', sans-serif;
-  background: var(--deep-ocean);
+  background: var(--abyss);
   color: var(--text-primary);
   overflow-x: hidden;
 }
 
+::selection {
+  background: rgba(139, 92, 246, 0.35);
+  color: var(--text-primary);
+}
+
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 10px;
 }
 
 ::-webkit-scrollbar-track {
@@ -45,205 +48,99 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, var(--octopus-purple), var(--tentacle-cyan));
-  border-radius: 4px;
+  background: rgba(148, 163, 184, 0.25);
+  border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, var(--glow-purple), var(--glow-cyan));
+  background: rgba(148, 163, 184, 0.4);
 }
 
-/* Glass Morphism Utility */
+:focus-visible {
+  outline: 2px solid var(--tentacle-cyan);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
 @layer utilities {
-  .glass {
-    background: rgba(255, 255, 255, 0.03);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+  /* Section kicker: "01 / Label" */
+  .kicker {
+    @apply font-mono text-xs uppercase tracking-[0.25em] text-tentacle-cyan;
   }
 
-  .glass-strong {
-    background: rgba(255, 255, 255, 0.06);
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.12);
+  /* Dotted grid texture */
+  .bg-dots {
+    background-image: radial-gradient(rgba(148, 163, 184, 0.14) 1px, transparent 1px);
+    background-size: 28px 28px;
   }
 
-  .text-gradient {
-    background: linear-gradient(135deg, var(--octopus-purple), var(--tentacle-cyan));
+  /* Single controlled accent gradient — use sparingly */
+  .text-accent {
+    background: linear-gradient(120deg, var(--glow-purple), var(--glow-cyan));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
-  .text-gradient-animated {
-    background: linear-gradient(
-      135deg,
-      var(--octopus-purple),
-      var(--tentacle-cyan),
-      var(--glow-purple),
-      var(--glow-cyan)
-    );
-    background-size: 300% 300%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    animation: gradientShift 4s ease infinite;
+  /* Outlined display type (footer wordmark) */
+  .text-outline {
+    -webkit-text-stroke: 1px rgba(148, 163, 184, 0.18);
+    color: transparent;
   }
 
-  .glow-effect {
-    filter: drop-shadow(0 0 20px rgba(139, 92, 246, 0.4))
-      drop-shadow(0 0 40px rgba(6, 182, 212, 0.3));
-  }
-
-  .hover-glow {
-    transition: all 0.3s ease;
-  }
-
-  .hover-glow:hover {
-    filter: drop-shadow(0 0 25px rgba(139, 92, 246, 0.5))
-      drop-shadow(0 0 50px rgba(6, 182, 212, 0.4));
+  .border-line {
+    border-color: var(--line);
   }
 }
 
-@keyframes gradientShift {
-  0%,
-  100% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-}
-
-/* Tentacle SVG Animations */
-.tentacle-path {
-  stroke-dasharray: 1000;
-  stroke-dashoffset: 1000;
-  animation: drawTentacle 2s ease-out forwards;
-}
-
-@keyframes drawTentacle {
-  to {
-    stroke-dashoffset: 0;
-  }
-}
-
-/* Suction cup hover effect */
-.suction-cup {
-  position: relative;
-}
-
-.suction-cup::before {
-  content: '';
-  position: absolute;
-  width: 8px;
-  height: 8px;
-  background: radial-gradient(circle, var(--glow-cyan), transparent);
-  border-radius: 50%;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.suction-cup:hover::before {
-  opacity: 1;
-}
-
-/* Button Styles */
+/* Buttons */
 .btn-primary {
-  @apply px-8 py-4 rounded-full font-display font-semibold text-lg;
-  background: linear-gradient(135deg, var(--octopus-purple), var(--electric-blue));
-  position: relative;
-  overflow: hidden;
-  transition: all 0.3s ease;
-}
-
-.btn-primary::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.2),
-    transparent
-  );
-  transition: left 0.5s ease;
-}
-
-.btn-primary:hover::before {
-  left: 100%;
+  @apply inline-flex items-center justify-center gap-2.5 rounded-lg px-7 py-4 font-display text-base font-semibold;
+  background: var(--text-primary);
+  color: var(--abyss);
+  transition: background-color 0.3s cubic-bezier(0.22, 1, 0.36, 1), transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s ease;
 }
 
 .btn-primary:hover {
+  background: var(--glow-cyan);
   transform: translateY(-2px);
-  box-shadow: 0 10px 40px rgba(139, 92, 246, 0.4);
+  box-shadow: 0 12px 40px rgba(34, 211, 238, 0.2);
 }
 
 .btn-secondary {
-  @apply px-8 py-4 rounded-full font-display font-semibold text-lg;
+  @apply inline-flex items-center justify-center gap-2.5 rounded-lg px-7 py-4 font-display text-base font-semibold text-text-primary;
   background: transparent;
-  border: 2px solid var(--glass-border);
-  transition: all 0.3s ease;
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  transition: border-color 0.3s ease, background-color 0.3s ease, transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .btn-secondary:hover {
-  border-color: var(--tentacle-cyan);
-  background: rgba(6, 182, 212, 0.1);
-  box-shadow: 0 0 30px rgba(6, 182, 212, 0.2);
+  border-color: rgba(34, 211, 238, 0.5);
+  background: rgba(6, 182, 212, 0.06);
+  transform: translateY(-2px);
 }
 
-/* Card Styles */
-.card-glass {
-  @apply rounded-2xl p-6;
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  transition: all 0.4s ease;
+/* Underline reveal for nav links */
+.link-underline {
+  position: relative;
 }
 
-.card-glass:hover {
-  background: rgba(255, 255, 255, 0.06);
-  border-color: rgba(139, 92, 246, 0.3);
-  transform: translateY(-8px);
-  box-shadow: 0 20px 60px rgba(139, 92, 246, 0.15), 0 0 40px rgba(6, 182, 212, 0.1);
+.link-underline::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 1px;
+  background: var(--glow-cyan);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* Input Styles */
-.input-glass {
-  @apply w-full px-6 py-4 rounded-xl text-text-primary;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  transition: all 0.3s ease;
-}
-
-.input-glass:focus {
-  outline: none;
-  border-color: var(--tentacle-cyan);
-  box-shadow: 0 0 20px rgba(6, 182, 212, 0.2);
-  background: rgba(255, 255, 255, 0.05);
-}
-
-.input-glass::placeholder {
-  color: var(--text-secondary);
-}
-
-/* Section Styling */
-section {
-  @apply relative;
-}
-
-/* Hide elements for animation on scroll */
-.reveal {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.8s ease;
-}
-
-.reveal.active {
-  opacity: 1;
-  transform: translateY(0);
+.link-underline:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
 }
 
 /* Noise texture overlay */
@@ -255,6 +152,20 @@ section {
   height: 100%;
   pointer-events: none;
   z-index: 1000;
-  opacity: 0.03;
+  opacity: 0.025;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
